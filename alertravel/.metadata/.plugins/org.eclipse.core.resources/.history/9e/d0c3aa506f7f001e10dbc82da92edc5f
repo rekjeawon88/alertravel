@@ -1,0 +1,7 @@
+package org.galapagos.mapper;
+
+import org.galapagos.domain.PaymentVO;
+
+public interface PaymentMapper {
+	public void addPayment(PaymentVO payment);
+}

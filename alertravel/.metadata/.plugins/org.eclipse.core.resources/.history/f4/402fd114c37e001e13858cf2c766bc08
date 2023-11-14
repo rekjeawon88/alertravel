@@ -1,0 +1,113 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
+
+<%@ include file="../layouts/header1.jsp"%>
+
+
+<div class="donate_title">
+	<h1>후원하기</h1>
+</div>
+
+<div class="container mt-5">
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<div class="card border-0"> <!-- 외부 선 제거 -->
+				<div class="card-body">
+					<form action="sponser" method="post"> <!-- submit 버튼 누르면 이동할 곳 -->
+						<div class="form-group">
+						
+							<!-- 후원자 개인 정보 입력 -->
+						<div class="form-group" id="nameInput">
+							<label for="name">금액 직접 입력</label> <input type="text"
+								name="name" class="form-control" placeholder="이름 입력">
+						</div>
+						
+							<!-- 후원 국가 선택창 -->
+							<label for="country"><b><h5>후원 국가 선택</h5></b></label>
+							<select class="form-control" name="country" id="donationCountry">
+								<option value="nation1">국가 1</option>
+								<option value="nation2">국가 2</option>
+								<option value="nation3">국가 3</option>
+								<option value="nation4">국가 4</option>
+								<option value="nation5">국가 5</option>
+								<option value="nation6">국가 6</option>
+								<option value="nation7">국가 7</option>
+								<option value="nation8">국가 8</option>
+								<option value="nation9">국가 9</option>
+								<option value="nation10">국가 10</option>
+							</select> 
+							
+							<br>
+							
+							<!-- 후원 금액 선택창 -->
+							<label for="amount"><b><h5>후원 금액 선택</h5></b></label>
+							<select class="form-control" name="amount" id="donationAmount">
+								<option value="10000">10,000원</option>
+								<option value="30000">30,000원</option>
+								<option value="50000">50,000원</option>
+								<option value="100000">100,000원</option>
+								<option value="300000">300,000원</option>
+								<option value="custom">금액 직접 입력</option>
+							</select>
+						</div>
+						<div class="form-group" id="customAmountInput" style="display: none;">
+							<label for="customAmount">금액 직접 입력</label> <input type="text"
+								name="customAmount" class="form-control" placeholder="금액 입력">
+						</div>
+						
+						<br>
+						
+						<div class="form-group">
+							<label for="message"><b><h5>응원 메시지</h5></b></label>
+							<textarea class="form-control" name="message" rows="3"
+								placeholder="응원 메시지를 남겨주세요"></textarea>
+						</div>
+						
+						<button type="submit" class="btn btn-block">후원하기</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+	// 금액 직접 입력 선택 시 입력창 보이게 함
+	document.getElementById('donationAmount')
+			.addEventListener('change',	function() {
+				var customAmountInput = document.getElementById('customAmountInput');
+		customAmountInput.style.display = (this.value === 'custom') ? 'block' : 'none';
+	});
+</script>
+
+<style>
+	.donate_title {
+		padding: 50px 300px 50px; /* 패딩: 위, 좌우, 아래 */
+	    background-color: #F0A07B;
+    	border-color: #F0A07B;
+		color: white;
+	}
+</style>
+<style>
+	.btn {
+	    background-color: #F0A07B;
+    	border-color: #F0A07B;
+		color: white;
+	}
+</style>
+
+
+
+
+<%@ include file="../layouts/footer1.jsp"%>

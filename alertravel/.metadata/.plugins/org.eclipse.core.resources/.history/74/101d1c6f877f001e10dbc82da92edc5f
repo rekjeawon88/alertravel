@@ -1,0 +1,22 @@
+IMP.init("imp81120017"); // 가맹점 식별코드
+
+const button = document.querySelector("button");
+
+const onClickPay = async () => {
+	IMP.request_pay({ // 결제 요청에 대한 모든 옵션이 포함된 구성 객체를 받아 많은 옵션 전달 가능
+		// 일단은 가장 중요하고 필수적인 옵션만 전달
+		pg: "kakaopay", // 결제 게이트웨이인 "PG"
+		pay_method: "card", 
+		amount: "60000", // 요청할 총 금액
+		name: "매운 라면", // 결제할 상품 이름
+		merchant_uid: " // 주문id
+		buyer_email: "test@test.com", 
+		buyer_name: "테스터", 
+		buyer_tel: "010
+		buyer_
+		buyer_
+	});
+};
+
+// 2번줄의 버튼을 이용해 이벤트 리스너 추가,
+button.addEventListener("click", onClickPay); // 버튼을 누르면 onClickPay 함수 실행

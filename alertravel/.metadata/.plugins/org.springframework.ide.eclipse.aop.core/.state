@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="starter"/>
+<aop-project name="alertravel"/>
+<aop-project name="project_base"/>
+</aop-reference-model>

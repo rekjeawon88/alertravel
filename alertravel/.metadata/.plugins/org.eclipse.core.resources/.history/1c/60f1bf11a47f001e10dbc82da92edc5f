@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+
+<%@ include file="../layouts/header.jsp"%>
+
+
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<script>
+	var IMP = window.IMP;
+	IMP.init("imp81120017"); // 가맹점 식별코드
+	
+	function requestPay() { // 결제 요청에 대한 모든 옵션이 포함된 구성 객체를 받아 많은 옵션 전달 가능
+		IMP.request_pay({
+			pg: "kcp", // 결제 게이트웨이인 "PG"
+			pay_method: "card", 
+			amount: "60000", // 요청할 총 금액
+			name: "매운 라면", // 결제할 상품 이름
+			buyer_email: "test@test.com", 
+			buyer_name: "테스터", 
+			buyer_tel: "01011112222", 
+		}, function(response) { // (콜백) 결제 완료 후 추가 코드를 실행하는 함수, response 매개변수를 받는 함수 전달
+			if (response.success) {
+				console.log(response);
+			} else {
+				console.log(response);
+			}
+		});
+	)
+</script>
+
+<button onclick="requestPay()">결제하기</button>
+
+
+<%@ include file="../layouts/footer.jsp"%>

@@ -1,0 +1,5 @@
+ackage org.galapagos.controller;
+
+public interface PaymemtVO {
+
+}
