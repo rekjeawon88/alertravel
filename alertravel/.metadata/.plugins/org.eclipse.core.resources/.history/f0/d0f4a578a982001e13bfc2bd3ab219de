@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="org.dawin.mapper.DonateMapper">
+	<resultMap id="donateAuthMap" type="org.dawin.domain.DonateAuthVO" >
+		<result property="username" column="username" />
+		<result property="auth" column="auth" />
+	</resultMap>
+	
+	<resultMap id="donateMap" type="org.dawin.domain.DonateVO">
+		<id property="donateName" column="donate_name" />
+		<result property="donateName" column="donate_name" />
+		<result property="donateBirthday" column="donate_birthday" />
+		<result property="donateEmail" column="donate_email" />
+	</resultMap>
+
+</mapper>

@@ -5,10 +5,10 @@ import java.io.IOException;
 import javax.validation.Valid;
 
 import org.dawin.domain.MemberVO;
-import org.dawin.domain.DonateVO;
 import org.dawin.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -62,27 +62,5 @@ public class SecurityController {
 		log.info("=== profile page 접속 중 ===");
 	}
 
-	@GetMapping("/donate")
-	public void donate() {
-		log.info("=== donate page 접속 중 ===");
-	}
-	
-	@PostMapping("/donate")
-	public String donate(@Valid @ModelAttribute("donate") DonateVO donate, Errors errors) throws IOException {
-		// 처리 로직
-		return "/donate";
-	}
-
-	@GetMapping("/payment")
-	public void payment() {
-		log.info("=== payment page 접속 중 ===");
-	}
-
-	@PostMapping("/payment")
-	public String payment(@Valid Errors errors) throws IOException {
-		// 처리 로직
-		log.info("=== payment page 접속 중 ===");
-		return "security/payment";
-	}
 	
 }

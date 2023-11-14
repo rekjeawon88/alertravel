@@ -42,8 +42,8 @@
 	<button type="submit" class="btn btn-primary btn-block">
 		<i class="fa-solid fa-right-to-bracket"></i> 로그인
 	</button>
-	<button type="submit" class="btn btn-primary btn-block">
-		<i class="fa-solid fa-user-plus"></i> 회원가입
+	<button type="submit" class="btn btn-danger btn-block">
+		<i class="fa-solid fa-user-plus"></i> 회원가입 (현재 비활성화)
 	</button>
 	
 </form>

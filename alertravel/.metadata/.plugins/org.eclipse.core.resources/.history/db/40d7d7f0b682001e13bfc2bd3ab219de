@@ -1,0 +1,8 @@
+package org.dawin.service;
+
+import org.dawin.domain.DonateVO;
+import org.dawin.domain.MemberVO;
+
+public interface DonateService {
+	public DonateVO get(String donateName);
+}

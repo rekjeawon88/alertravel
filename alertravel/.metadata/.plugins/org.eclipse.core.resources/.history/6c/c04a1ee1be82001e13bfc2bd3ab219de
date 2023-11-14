@@ -1,0 +1,15 @@
+package org.dawin.service;
+
+import org.dawin.domain.DonateVO;
+import org.dawin.mapper.DonateMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class DonateServiceImpl implements DonateService{
+	@Autowired
+	DonateMapper mapper;
+	
+	@Override
+	public DonateVO get(String donateOption) {
+		return mapper.donateRead(donateOption);
+	}
+}

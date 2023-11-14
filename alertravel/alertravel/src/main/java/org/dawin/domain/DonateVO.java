@@ -1,22 +1,13 @@
 package org.dawin.domain;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class DonateVO {
-	@NotBlank(message = "성명은 필수항목입니다.")
-	@Size(min = 2, message = "성명은 2글자 이상이어야 합니다.")
-	private String paymentName;
-	
-	@NotBlank(message = "생년월일은 필수항목입니다.")
-	@Size(min = 6, max = 6, message = "생년월일은 6글자이어야 합니다.")
-	private String paymentBirthday;
-	
-	@NotBlank(message = "이메일은 필수항목입니다.")
-	@Email(message = "이메일 형식에 맞지 않습니다.")
-	private String paymentEmail;
+	private String donateOption;
+	private int donateMoney;
 }

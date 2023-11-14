@@ -1,0 +1,9 @@
+package org.dawin.service;
+
+import org.dawin.mapper.MemberMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class DonateServiceImpl implements DonateService{
+	@Autowired
+	MemberMapper mapper;
+}

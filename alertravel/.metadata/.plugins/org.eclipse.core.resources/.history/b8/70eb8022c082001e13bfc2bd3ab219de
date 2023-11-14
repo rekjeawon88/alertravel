@@ -1,0 +1,13 @@
+package org.dawin.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class DonateAuthVO {
+	private String donateName;
+	private String donateAuth;
+}

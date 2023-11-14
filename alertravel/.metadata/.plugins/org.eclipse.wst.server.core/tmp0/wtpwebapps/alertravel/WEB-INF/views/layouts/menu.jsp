@@ -16,8 +16,8 @@
 		<!-- 좌측 메뉴 -->
 		<ul class="navbar-nav">
 			<li class="nav-item">
-				<a class="nav-link" href="#">
-					<i class="fa-solid fa-screwdriver-wrench"></i> 공사 중
+				<a class="nav-link" href="/donate/donate">
+					<i class="fa-solid fa-screwdriver-wrench"></i> 후원하기
 				</a>
 			</li>
 		</ul>

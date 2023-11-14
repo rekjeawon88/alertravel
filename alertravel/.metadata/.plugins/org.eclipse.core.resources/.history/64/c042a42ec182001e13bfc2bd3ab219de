@@ -1,0 +1,7 @@
+package org.dawin.mapper;
+
+import java.util.List;
+
+public interface DonateMapper {
+	public List<DonateVO> getDonateAmountList();
+}

@@ -1,0 +1,110 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<head>
+<!-- jQuery -->
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<!-- axios -->
+<script type="text/javascript"
+	src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script>
+        var IMP = window.IMP; 
+        IMP.init("imp81120017"); 
+      
+        var today = new Date();   
+        var hours = today.getHours(); // 시
+        var minutes = today.getMinutes();  // 분
+        var seconds = today.getSeconds();  // 초
+        var milliseconds = today.getMilliseconds();
+        var makeMerchantUid = hours +  minutes + seconds + milliseconds;
+        
+		function requestPay1() {
+            IMP.request_pay({
+                pg : 'kcp', // pg사
+                pay_method : 'card', // 결제 수단
+                merchant_uid: "ORD20231111-0000001", // 주문번호
+                name : 'kcp 결제창', // 상품 이름
+                merchant_uid : 'ORD20231114-000001',
+                amount : 111111, // 총 결제 금액
+				buyer_name : '아임포트 기술지원팀', // 구매자 이름
+                buyer_tel : '010-1234-5678', // 구매자 전화번호
+                buyer_email : 'Iamport@chai.finance' // 구매자 이메일
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                    // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
+                    // jQuery로 HTTP 요청
+                    jQuery.ajax({
+                      url: "{서버의 결제 정보를 받는 가맹점 endpoint}", 
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      data: {
+                        imp_uid: rsp.imp_uid,            // 결제 고유번호
+                        merchant_uid: rsp.merchant_uid   // 주문번호
+                      }
+                    }).done(function (data) {
+                      // 가맹점 서버 결제 API 성공시 로직
+                    })
+                  } else {
+                    alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
+                  }
+                });
+		}
+        
+        
+        function requestPay2() {
+            IMP.request_pay({
+                pg : 'kakaopay',
+                pay_method : 'card',
+                name : '카카오페이 결제창',
+                merchant_uid : 'ORD20231114-000002',
+                amount : 222222,
+                buyer_email : 'Iamport@chai.finance',
+                buyer_name : '아임포트 기술지원팀',
+                buyer_tel : '010-1234-5678',
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                    console.log(rsp);
+                } else {
+                    console.log(rsp);
+				}
+			)};
+        }
+        
+        function requestPay3() {
+            IMP.request_pay({
+                pg : 'tosspay',
+                pay_method : 'card',
+                name : '토스페이 결제창',
+                merchant_uid : 'ORD20231114-000003',
+                amount : 333333,
+                buyer_email : 'Iamport@chai.finance',
+                buyer_name : '아임포트 기술지원팀',
+                buyer_tel : '010-1234-5678',
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                    console.log(rsp);
+                } else {
+                    console.log(rsp);
+                }
+            });
+        }
+    </script>
+<title>Sample Payment</title>
+</head>
+<body>
+	<button onclick="requestPay1()">kcp 결제하기</button>
+	<!-- 결제하기 버튼 생성 -->
+	<button onclick="requestPay2()">카카오페이 결제하기</button>
+	<!-- 결제하기 버튼 생성 -->
+	<button onclick="requestPay3()">토스페이 결제하기</button>
+	<!-- 결제하기 버튼 생성 -->
+</body>
+</html>

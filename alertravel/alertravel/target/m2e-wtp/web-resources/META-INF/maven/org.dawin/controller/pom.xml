@@ -16,7 +16,24 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+
+	<repositories>
+
+		<!-- jitpack repository -->
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
+
+		<!-- iamport -->
+		<dependency>
+			<groupId>com.github.iamport</groupId>
+			<artifactId>iamport-rest-client-java</artifactId>
+			<version>0.2.22</version>
+		</dependency>
 
 		<!-- Spring-Security -->
 		<dependency>

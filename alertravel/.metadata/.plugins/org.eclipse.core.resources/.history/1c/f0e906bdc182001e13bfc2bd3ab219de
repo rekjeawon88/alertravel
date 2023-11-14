@@ -1,0 +1,14 @@
+package org.dawin.service;
+
+import org.dawin.mapper.DonateMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class DonateServiceImpl implements DonateService {
+	
+	@Autowired
+	DonateMapper mapper;
+	
+	
+}

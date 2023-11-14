@@ -1,0 +1,40 @@
+package org.dawin.domain;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import lombok.Data;
+
+@Data
+public class DonateVO {
+	@NotBlank(message = "성명은 필수항목입니다.")
+	@Size(min = 2, message = "성명은 2글자 이상이어야 합니다.")
+	private String donateName;
+	
+	@NotBlank(message = "생년월일은 필수항목입니다.")
+	@Size(min = 6, max = 6, message = "생년월일은 6글자이어야 합니다.")
+	private String donateBirthday;
+	
+	@NotBlank(message = "이메일은 필수항목입니다.")
+	@Email(message = "이메일 형식에 맞지 않습니다.")
+	private String donateEmail;
+	
+	private List<AuthVO> authList;
+	
+	public Collection<SimpleGrantedAuthority> getAuthorities() {
+		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+		
+		for(AuthVO auth: authList) {
+			authorities.add(new SimpleGrantedAuthority(auth.getAuth()));
+		}
+		
+		return authorities;
+	}
+}
