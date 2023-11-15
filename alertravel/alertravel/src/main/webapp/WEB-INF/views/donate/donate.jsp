@@ -21,7 +21,8 @@
 			<div class="card border-0"> <!-- 외부 선 제거 -->
 				<div class="card-body">
 					<form action="payment" method="post"> <!-- submit 버튼 누르면 이동할 곳 -->
-						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						<input type="hidden" name="donationAmount" value="선택된 금액">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						<div class="form-group">
 						
 							<h3><br>후원자 정보<br></h3>
@@ -58,47 +59,28 @@
 							<hr color="#F0A07B">
 							<br>
 						
-							<!-- 후원 국가 선택창 -->
-<!-- 						<label for="country"><b><h5>후원 국가 선택</h5></b></label>
-	 						<select class="form-control" name="country" id="donationCountry">
-								<option value="noCountry">== 국가 선택 ==</option>
-								<option value="nation1">국가 1</option>
-								<option value="nation2">국가 2</option>
-								<option value="nation3">국가 3</option>
-								<option value="nation4">국가 4</option>
-								<option value="nation5">국가 5</option>
-								<option value="nation6">국가 6</option>
-								<option value="nation7">국가 7</option>
-								<option value="nation8">국가 8</option>
-								<option value="nation9">국가 9</option>
-								<option value="nation10">국가 10</option>
-							</select>  -->
-                            <label for="country"><b><h5>후원 국가 선택</h5></b></label> 
-                            <select class="form-control" name="country" id="donationCountry">
-                                <option value="noCountry">== 국가 선택 ==</option>
-                                <c:forEach var="exchangeData" items="${lists}">
-                                    <option value="${exchangeData.cur_nm}"
-                                        data-tts="${exchangeData.tts}">
-                                        ${exchangeData.cur_nm}</option>
+							<!-- 후원 목적 선택창 -->
+                            <label for="select"><b><h5>후원 목적 선택</h5></b></label> 
+                            <select class="form-control" name="select" id="donateSelect">
+                                <option value="select">== 후원 목적 선택 ==</option>
+                                <c:forEach var="donateSelect" items="${donateSelectList}">
+        							<option value="${donateSelect.donateSelect}">${donateSelect.donateSelect}</option>
                                 </c:forEach>
                             </select>
 							
+							<!-- 글 간격 줄이기 -->
+							<div style="height: 0.5em;"></div> 
+							후원 목적 상세 내역 ( gpt 참고 )
+							
+							<br>
 							<br>
 							
 							<!-- 후원 금액 선택창 -->
-<!-- 						<label for="amount"><b><h5>후원 금액 선택</h5></b></label>
-							<select class="form-control" name="amount" id="donateOption">							
-								<option value="noAmount">== 금액 선택 ==</option>
-								<option value="10000">10,000원</option>
-								<option value="30000">30,000원</option>
-								<option value="50000">50,000원</option>
-								<option value="100000">100,000원</option>
-								<option value="300000">300,000원</option>
-							</select> -->
 							<label for="amount"><b><h5>후원 금액 선택</h5></b></label>
 							<select class="form-control" name="amount" id="donateAmount">
+								<option value="amount">== 후원 금액 선택 ==</option>
 							    <c:forEach var="donateAmount" items="${donateAmountList}">
-        							<option value="${donateAmount.donateOption}">${donateAmount.donateOption}</option>
+        							<option value="${donateAmount.donateMoney}">${donateAmount.donateOption}</option>
    								</c:forEach>
 							</select>
 						</div>
@@ -140,31 +122,25 @@
     var summaryText = document.getElementById('summaryText');
     
     // 선택한 국가 및 후원 금액 가져오기
-    var selectedCountry = document.getElementById('donationCountry').
-    						options[document.getElementById('donationCountry').selectedIndex].text;
+    var selectedOption = document.getElementById('donateSelect').
+    						options[document.getElementById('donateSelect').selectedIndex].text;
     
-    var selectedAmount = document.getElementById('donateOption').
-    						options[document.getElementById('donateOption').selectedIndex].text;
-    
-    var selectedTTS = document.getElementById("donationCountry").options[document
-        .getElementById("donationCountry").selectedIndex].dataset.tts; 
-    
-    console.log(selectedTTS);
+    var selectedAmount = document.getElementById('donateAmount').
+    						options[document.getElementById('donateAmount').selectedIndex].text;
     
     // 항상 요약을 표시
     summaryContainer.style.display = 'block';
-    summaryText.innerText = "선택 국가: " + selectedCountry +
-                            "\n후원 금액: " + selectedAmount + 
-                            "\n환전 금액: " + selectedTTS;
+    summaryText.innerText = "선택하신 후원 목적: " + selectedOption +
+                            "\n선택하신 후원 금액: " + selectedAmount;
   }
 
   // 후원 금액 변경 시 이벤트 처리
-  document.getElementById('donateOption').addEventListener('change', function() {
+  document.getElementById('donateAmount').addEventListener('change', function() {
     updateSummary();
   });
 
-  // 국가 변경 시 이벤트 처리
-  document.getElementById('donationCountry').addEventListener('change', function() {
+  // 후원 목적 변경 시 이벤트 처리
+  document.getElementById('donateSelect').addEventListener('change', function() {
     updateSummary();
   });
 

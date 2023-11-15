@@ -1,0 +1,70 @@
+package org.dawin.controller;
+
+import java.io.IOException;
+
+import javax.validation.Valid;
+
+import org.dawin.service.DonateService;
+import org.dawin.service.ExchangeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+@RequestMapping("/donate")
+@Controller
+public class DonateController {
+	
+	@Autowired
+	DonateService service;
+	
+	@Autowired
+	ExchangeService exservice;
+	
+	@GetMapping("/donate")
+	public void donateList(Model model) {
+		
+		log.info("=== donate page 접속 중 ===");
+		model.addAttribute("donateAmountList", service.getDonateList());
+		model.addAttribute("lists", exservice.exchangeData());
+	}
+	
+	@PostMapping("/donate")
+	public String donate(@Valid Errors errors) throws IOException {
+		
+		log.info("=== donate page 접속 중 ===");
+		// 처리 로직
+		return "/donate";
+	}
+
+	@GetMapping("/payment")
+	public void payment() {
+		log.info("=== payment page 접속 중 ===");
+	}
+
+	@PostMapping("/payment")
+	public String payment(@RequestParam("donationAmount") String donationAmount, Errors errors, Model model) {
+	    // donationAmount를 사용하여 필요한 로직을 수행
+	    if (donationAmount != null && !donationAmount.isEmpty()) {
+	        // donationAmount이 유효한 경우에 처리
+	        // 예: model.addAttribute("amount", donationAmount);
+	    } else {
+	        // 유효하지 않은 경우 에러 처리
+	        errors.rejectValue("donationAmount", "error.donationAmount", "Invalid donation amount");
+	        return "errorPage"; // 에러 페이지로 리다이렉트 또는 포워드
+	    }
+
+	    // 나머지 컨트롤러 로직
+
+	    return "/"; // 성공적인 경우의 뷰 페이지
+	}
+
+}

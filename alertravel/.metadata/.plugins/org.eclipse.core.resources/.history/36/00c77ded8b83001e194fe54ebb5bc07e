@@ -1,0 +1,16 @@
+package org.dawin.mapper;
+
+import java.util.List;
+
+import org.dawin.domain.DonateVO;
+import org.dawin.domain.MemberVO;
+
+public interface DonateMapper {
+	
+	public DonateVO read(String donateName);
+	
+	public List<DonateVO> getDonateAmountList();
+	
+	public void insert(DonateVO donate);
+	
+}

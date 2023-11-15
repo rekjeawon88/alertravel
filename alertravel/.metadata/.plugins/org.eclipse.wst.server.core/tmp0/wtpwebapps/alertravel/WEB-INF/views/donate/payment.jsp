@@ -13,6 +13,20 @@
 <script type="text/javascript"
 	src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+
+<%
+    // 폼에서 전달된 "donationAmount" 파라미터 받기
+    String donationAmount = request.getParameter("donationAmount");
+
+    // 받아온 값이 null이 아니라면 출력
+    if (donationAmount != null) {
+        out.println("선택한 금액: " + donationAmount);
+    } else {
+        out.println("금액이 선택되지 않았습니다.");
+    }
+%>
+
+
 <script>
         var IMP = window.IMP; 
         IMP.init("imp81120017"); 
@@ -24,37 +38,27 @@
         var milliseconds = today.getMilliseconds();
         var makeMerchantUid = hours +  minutes + seconds + milliseconds;
         
-		function requestPay1() {
+        function requestPay1() {
             IMP.request_pay({
-                pg : 'kcp', // pg사
-                pay_method : 'card', // 결제 수단
+                pg: 'kcp', // pg사
+                pay_method: 'card', // 결제 수단
                 merchant_uid: "ORD20231111-0000001", // 주문번호
-                name : 'kcp 결제창', // 상품 이름
-                merchant_uid : 'ORD20231114-000001',
-                amount : 111111, // 총 결제 금액
-				buyer_name : '아임포트 기술지원팀', // 구매자 이름
-                buyer_tel : '010-1234-5678', // 구매자 전화번호
-                buyer_email : 'Iamport@chai.finance' // 구매자 이메일
+                name: 'kcp 결제창', // 상품 이름
+                merchant_uid: 'ORD20231114-000001',
+                amount: 10000, // 총 결제 금액
+                buyer_name: '아임포트 기술지원팀', // 구매자 이름
+                buyer_tel: '010-1234-5678', // 구매자 전화번호
+                buyer_email: 'Iamport@chai.finance' // 구매자 이메일
             }, function (rsp) { // callback
                 if (rsp.success) {
-                    // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
-                    // jQuery로 HTTP 요청
-                    jQuery.ajax({
-                      url: "{서버의 결제 정보를 받는 가맹점 endpoint}", 
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      data: {
-                        imp_uid: rsp.imp_uid,            // 결제 고유번호
-                        merchant_uid: rsp.merchant_uid   // 주문번호
-                      }
-                    }).done(function (data) {
-						// 가맹점 서버 결제 API 성공시 로직
-                    })
-                  } else {
-                    alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
-                  }
-			});
-		}
+                    console.log(rsp);
+                } else {
+                    console.log(rsp);
+                }
+            });
+        }
+
+
         
         
         function requestPay2() {
@@ -73,7 +77,7 @@
                 } else {
                     console.log(rsp);
 				}
-			)};
+			});
         }
         
         function requestPay3() {

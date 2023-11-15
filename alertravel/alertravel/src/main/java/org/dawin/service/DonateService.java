@@ -7,4 +7,5 @@ import org.springframework.stereotype.Service;
 
 public interface DonateService {
 	public List<DonateVO> getDonateList();
+	public List<DonateVO> getDonateSelectList();
 }
