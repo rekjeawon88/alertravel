@@ -14,13 +14,18 @@ public class DonateServiceImpl implements DonateService {
 	DonateMapper mapper;
 
 	@Override
-	public List<DonateVO> getDonateList() {
-		return mapper.getDonateAmountList();
+	public List<DonateVO> getDonateSelectList() {
+		return mapper.getDonateSelectList();
 	}
 
 	@Override
-	public List<DonateVO> getDonateSelectList() {
-		return mapper.getDonateSelectList();
+	public List<DonateVO> getDonateMyList() {
+		return mapper.getDonateMyList();
+	}
+
+	@Override
+	public List<DonateVO> getDonateAmountList() {
+		return mapper.getDonateAmountList();
 	}
 	
 	

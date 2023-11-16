@@ -16,11 +16,13 @@
 		<result property="donateMessage" column="donate_message" />
 	</resultMap>
 	
-	<select id="read" resultMap="donateMap">
+	<select id="getDonateMyList" resultMap="donateMap">
 		select donate_name, donate_birthday, donate_phone_number, 
 			donate_email, donate_select, donate_money, donate_message
 		from tbl_donate_member
-		where donate_name = #{donateName}
+		where donate_name = #{donateName} AND 
+			donate_phone_number = #{donatePhoneNumber} AND
+			donate_birthday = #{donateBirthday}
 	</select>
 	
 	<select id="getDonateSelectList" resultType="DonateVO">
@@ -32,4 +34,11 @@
 		select donate_option, donate_money  
 		from tbl_donate_amount order by donate_money
 	</select>
+	
+	<insert id="insertDonate">
+		insert into tbl_donate_member(donate_name, donate_birthday, donate_phone_number, 
+			donate_email, donate_select, donate_money, donate_message)
+		values(#{donateName}, #{donateBirthday}, #{donatePhoneNumber}, #{donateEmail}, 
+			#{donateSelect}, #{donateMoney}, #{donateMessage})
+	</insert>
 </mapper>

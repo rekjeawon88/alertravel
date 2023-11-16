@@ -21,7 +21,6 @@
 			<div class="card border-0"> <!-- 외부 선 제거 -->
 				<div class="card-body">
 					<form action="payment" method="post"> <!-- submit 버튼 누르면 이동할 곳 -->
-						<input type="hidden" name="donationAmount" value="선택된 금액">
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						<div class="form-group">
 						
@@ -30,14 +29,15 @@
 							<!-- 후원자 개인 정보 입력 -->
 							<div class="form-group" id="nameInput">
 								<label for="name">성명</label> 
-								<input type="text" name="name" class="form-control" placeholder="성명 입력">
+								<input type="text" name="name" class="form-control" placeholder="성명 입력" required>
+								<form:errors path="name" cssClass="error"></form:errors>
 							</div>
 							
 							<br>
 							
 							<div class="form-group" id="birthdayInput">
 								<label for="birthday">생년월일</label>
-								<input type="text" name="birthday" class="form-control" placeholder="생년월일 6자리 입력">
+								<input type="text" name="birthday" class="form-control" placeholder="생년월일 6자리 입력" required>
 								<pre>※만 14세 미만의 경우, 후원이 불가능합니다.※</pre>
 							</div>
 							
@@ -45,14 +45,14 @@
 							
 							<div class="form-group" id="phoneInput">
 								<label for="phone">휴대폰 번호</label>
-								<input type="text" name="phone" class="form-control" placeholder="휴대펀 번호 입력('-' 제외)">
+								<input type="text" name="phone" class="form-control" placeholder="휴대펀 번호 입력('-' 제외)" required>
 							</div>
 							
 							<br>
 							
 							<div class="form-group" id="emailInput">
 								<label for="email">이메일</label>
-								<input type="text" name="email" class="form-control" placeholder="이메일 주소 입력">
+								<input type="text" name="email" class="form-control" placeholder="이메일 주소 입력" required>
 							</div>
 							
 							<br>
@@ -69,8 +69,8 @@
                             </select>
 							
 							<!-- 글 간격 줄이기 -->
-							<div style="height: 0.5em;"></div> 
-							후원 목적 상세 내역 ( gpt 참고 )
+							<div style="height: 0.5em;" id="descriptionOutput"></div> 
+							<!-- 후원 목적 상세 내역 ( https://chat.openai.com/c/3d939fa5-5483-47c0-837c-c446eb0c5447 참고 ) -->
 							
 							<br>
 							<br>
@@ -86,9 +86,8 @@
 						</div>
 						
 						<div class="form-group">
-							<label for="message"><b><h5>응원 메시지</h5></b></label>
-							<textarea class="form-control" name="message" rows="3"
-								placeholder="응원 메시지를 남겨주세요"></textarea>
+							<label for="message"><h5><b>응원 메시지</b></h5></label>
+							<textarea class="form-control" name="message" rows="3"	placeholder="응원 메시지를 남겨주세요" required></textarea>
 						</div>
 						
 						<br>
@@ -97,7 +96,7 @@
 						
 						<!-- 후원 요약 정보를 보여줄 컨테이너 -->
 						<div id="summaryContainer" style="display: none;">
-							<label for="summary"><b><h5>후원 요약</h5></b></label>
+							<label for="summary"><h5><b>후원 요약</b></h5></label>
 								<p id="summaryText"></p>
 						</div>
 						
@@ -111,20 +110,18 @@
 
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <script>
-  // 함수를 만들어 국가 및 후원 금액에 대한 요약을 업데이트
+  // 함수를 만들어 후원 목적 및 후원 금액에 대한 요약을 업데이트
   function updateSummary() {
     var summaryContainer = document.getElementById('summaryContainer');
     var summaryText = document.getElementById('summaryText');
     
-    // 선택한 국가 및 후원 금액 가져오기
+    // 선택한 후원 목적 및 후원 금액 가져오기
     var selectedOption = document.getElementById('donateSelect').
     						options[document.getElementById('donateSelect').selectedIndex].text;
-    
     var selectedAmount = document.getElementById('donateAmount').
     						options[document.getElementById('donateAmount').selectedIndex].text;
     
@@ -150,6 +147,39 @@
     document.getElementById('summaryContainer').style.display = 'block';
   });
 </script>
+
+<script>
+	// 후원 목적과 설명을 매핑할 객체
+	var descriptionMap = {
+		<c:forEach var="donateSelect" items="${donateSelectList}">
+			'${donateSelect.donateSelect}': '${donateSelect.donateDescription}'
+		</c:forEach>
+	};
+
+	// 함수를 만들어 후원 목적에 따른 설명을 업데이트
+	function updateDescription() {
+
+		// 선택한 후원 목적 가져오기
+		var selectedOption = document.getElementById('donateSelect').value;
+
+		// 선택한 목적에 따라 설명 업데이트
+		var description = descriptionMap[selectedOption] || '선택된 목적에 대한 설명이 없습니다.';
+		document.getElementById('descriptionOutput').innerText = description;
+	}
+
+	// 후원 목적 변경 시 이벤트 처리
+	document.getElementById('donateSelect').addEventListener('change', function() {
+		updateDescription();
+	});
+
+	// 초기 로딩 시 실행
+	window.addEventListener('load', function() {
+	// 처음에 목적에 대한 설명 업데이트
+		updateDescription();
+	});
+</script>
+
+
 <style>
 	.donate_title {
 		padding: 50px 300px 50px; /* 패딩: 위, 좌우, 아래 */
@@ -158,6 +188,7 @@
 		color: white;
 	}
 </style>
+
 <style>
 	.btn {
 	    background-color: #F0A07B;
@@ -165,8 +196,6 @@
 		color: white;
 	}
 </style>
-
-
 
 
 <%@ include file="../layouts/footer.jsp"%>

@@ -33,8 +33,8 @@ public class DonateController {
 	@GetMapping("/donate")
 	public void donateList(Model model) {
 		
-		log.info("=== donate page 접속 중 ===");
-		model.addAttribute("donateAmountList", service.getDonateList());
+		log.info("=== donate page GetMapping 접속 중 ===");
+		model.addAttribute("donateAmountList", service.getDonateAmountList());
 		model.addAttribute("donateSelectList", service.getDonateSelectList());
 		model.addAttribute("lists", exservice.exchangeData());
 	}
@@ -42,19 +42,19 @@ public class DonateController {
 	@PostMapping("/donate")
 	public String donate(@Valid Errors errors) throws IOException {
 		
-		log.info("=== donate page 접속 중 ===");
+		log.info("=== donate page PostMapping 접속 중 ===");
 		// 처리 로직
 		return "/donate";
 	}
 
 	@GetMapping("/payment")
 	public void payment() {
-		log.info("=== payment page 접속 중 ===");
+		log.info("=== payment page GetMapping 접속 중 ===");
 	}
 
 	@PostMapping("/payment")
-	public String payment(@ModelAttribute("donate") DonateVO donate, Model model, Errors errors) {
-		
+	public String payment(@Valid @ModelAttribute("donate") DonateVO donate, Errors errors, Model model) {
+		log.info("=== payment page PostMapping 접속 중 ===");
 		if (errors.hasFieldErrors()) {
 			return "donate/donate";
 		}

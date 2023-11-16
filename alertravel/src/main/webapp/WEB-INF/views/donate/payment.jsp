@@ -15,22 +15,32 @@
 
 
 <%
-    // 폼에서 전달된 "donationAmount" 파라미터 받기
-    String donationAmount = request.getParameter("donationAmount");
+    // 폼에서 전달된 파라미터 받기
+    String name = request.getParameter("name");
+    String phone = request.getParameter("phone");
+    String email = request.getParameter("email");
+    String amount = request.getParameter("amount");
+    String select = request.getParameter("select");
+    String message = request.getParameter("message");
 
-    // 받아온 값이 null이 아니라면 출력
-    if (donationAmount != null) {
-        out.println("선택한 금액: " + donationAmount);
-    } else {
-        out.println("금액이 선택되지 않았습니다.");
-    }
+	out.println("후원자 성함: " + name);
+	out.println("후원자 휴대폰 번호: " + phone);
+	out.println("후원자 이메일: " + email);
+	out.println("선택한 후원 금액: " + amount);
+	out.println("선택한 후원 목적: " + select);
+	out.println("후원자 메세지: " + message);
 %>
-
 
 <script>
         var IMP = window.IMP; 
         IMP.init("imp81120017"); 
       
+        var name = '<%= name %>';
+        var phone = '<%= phone %>';
+        var email = '<%= email %>';
+        var amount = '<%= amount %>';
+        var select = '<%= select %>';
+        
         var today = new Date();   
         var hours = today.getHours(); // 시
         var minutes = today.getMinutes();  // 분
@@ -42,13 +52,12 @@
             IMP.request_pay({
                 pg: 'kcp', // pg사
                 pay_method: 'card', // 결제 수단
-                merchant_uid: "ORD20231111-0000001", // 주문번호
-                name: 'kcp 결제창', // 상품 이름
-                merchant_uid: 'ORD20231114-000001',
-                amount: 10000, // 총 결제 금액
-                buyer_name: '아임포트 기술지원팀', // 구매자 이름
-                buyer_tel: '010-1234-5678', // 구매자 전화번호
-                buyer_email: 'Iamport@chai.finance' // 구매자 이메일
+//                merchant_uid: "ORD20231111-0000001", // 주문번호
+                name: select, // 상품 이름
+                amount: amount, // 총 결제 금액
+                buyer_name: name, // 구매자 이름
+                buyer_tel: phone, // 구매자 전화번호
+                buyer_email: email // 구매자 이메일
             }, function (rsp) { // callback
                 if (rsp.success) {
                     console.log(rsp);
@@ -58,38 +67,35 @@
             });
         }
 
-
-        
-        
         function requestPay2() {
             IMP.request_pay({
-                pg : 'kakaopay',
-                pay_method : 'card',
-                name : '카카오페이 결제창',
-                merchant_uid : 'ORD20231114-000002',
-                amount : 222222,
-                buyer_email : 'Iamport@chai.finance',
-                buyer_name : '아임포트 기술지원팀',
-                buyer_tel : '010-1234-5678',
+                pg: 'kakaopay', // pg사
+                pay_method: 'card', // 결제 수단
+//                merchant_uid: "ORD20231111-0000002", // 주문번호
+                name: select, // 상품 이름
+                amount: amount, // 총 결제 금액
+                buyer_name: name, // 구매자 이름
+                buyer_tel: phone, // 구매자 전화번호
+                buyer_email: email // 구매자 이메일
             }, function (rsp) { // callback
                 if (rsp.success) {
                     console.log(rsp);
                 } else {
                     console.log(rsp);
-				}
-			});
+                }
+            });
         }
         
         function requestPay3() {
             IMP.request_pay({
                 pg : 'tosspay',
                 pay_method : 'card',
-                name : '토스페이 결제창',
-                merchant_uid : 'ORD20231114-000003',
-                amount : 333333,
-                buyer_email : 'Iamport@chai.finance',
-                buyer_name : '아임포트 기술지원팀',
-                buyer_tel : '010-1234-5678',
+//                merchant_uid : 'ORD20231114-000003',
+                name: select, // 상품 이름
+                amount: amount, // 총 결제 금액
+                buyer_name: name, // 구매자 이름
+                buyer_tel: phone, // 구매자 전화번호
+                buyer_email: email // 구매자 이메일
             }, function (rsp) { // callback
                 if (rsp.success) {
                     console.log(rsp);

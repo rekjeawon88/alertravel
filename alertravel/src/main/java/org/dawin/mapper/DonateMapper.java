@@ -6,7 +6,7 @@ import org.dawin.domain.DonateVO;
 
 public interface DonateMapper {
 	
-	public DonateVO read(String donateName);
+	public List<DonateVO> getDonateMyList();
 	
 	public List<DonateVO> getDonateAmountList();
 	
