@@ -28,31 +28,30 @@
 							
 							<!-- 후원자 개인 정보 입력 -->
 							<div class="form-group" id="nameInput">
-								<label for="name">성명</label> 
-								<input type="text" name="name" class="form-control" placeholder="성명 입력" required>
-								<form:errors path="name" cssClass="error"></form:errors>
+								<label for="donateName">성명</label> 
+								<input type="text" name="donateName" class="form-control" placeholder="성명 입력" required>
 							</div>
 							
 							<br>
 							
 							<div class="form-group" id="birthdayInput">
-								<label for="birthday">생년월일</label>
-								<input type="text" name="birthday" class="form-control" placeholder="생년월일 6자리 입력" required>
+								<label for="donateBirthday">생년월일</label>
+								<input type="text" name="donateBirthday" class="form-control" placeholder="생년월일 6자리 입력" required>
 								<pre>※만 14세 미만의 경우, 후원이 불가능합니다.※</pre>
 							</div>
 							
 							<br>
 							
 							<div class="form-group" id="phoneInput">
-								<label for="phone">휴대폰 번호</label>
-								<input type="text" name="phone" class="form-control" placeholder="휴대펀 번호 입력('-' 제외)" required>
+								<label for="donatePhoneNumber">휴대폰 번호</label>
+								<input type="text" name="donatePhoneNumber" class="form-control" placeholder="휴대펀 번호 입력('-' 제외)" required>
 							</div>
 							
 							<br>
 							
 							<div class="form-group" id="emailInput">
-								<label for="email">이메일</label>
-								<input type="text" name="email" class="form-control" placeholder="이메일 주소 입력" required>
+								<label for="donateEmail">이메일</label>
+								<input type="text" name="donateEmail" class="form-control" placeholder="이메일 주소 입력" required>
 							</div>
 							
 							<br>
@@ -61,8 +60,8 @@
 						
 							<!-- 후원 목적 선택창 -->
                             <label for="select"><b><h5>후원 목적 선택</h5></b></label> 
-                            <select class="form-control" name="select" id="donateSelect">
-                                <option value="select">== 후원 목적 선택 ==</option>
+                            <select class="form-control" name="donateSelect" id="donateSelect">
+                                <option value="donateSelect">== 후원 목적 선택 ==</option>
                                 <c:forEach var="donateSelect" items="${donateSelectList}">
         							<option value="${donateSelect.donateSelect}">${donateSelect.donateSelect}</option>
                                 </c:forEach>
@@ -71,23 +70,26 @@
 							<!-- 글 간격 줄이기 -->
 							<div style="height: 0.5em;" id="descriptionOutput"></div> 
 							<!-- 후원 목적 상세 내역 ( https://chat.openai.com/c/3d939fa5-5483-47c0-837c-c446eb0c5447 참고 ) -->
+							후원 목적 설명 나오게 하는거 포기! (매핑만 성공...)
 							
 							<br>
 							<br>
 							
 							<!-- 후원 금액 선택창 -->
-							<label for="amount"><b><h5>후원 금액 선택</h5></b></label>
-							<select class="form-control" name="amount" id="donateAmount">
-								<option value="amount">== 후원 금액 선택 ==</option>
-							    <c:forEach var="donateAmount" items="${donateAmountList}">
-        							<option value="${donateAmount.donateMoney}">${donateAmount.donateOption}</option>
+							<label for="donateOption"><b><h5>후원 금액 선택</h5></b></label>
+							<select class="form-control" name="donateMoney" id="donateMoney">
+								<option value="donateMoney">== 후원 금액 선택 ==</option>
+							    <c:forEach var="donateMoney" items="${donateAmountList}">
+        							<option value="${donateMoney.donateMoney}">${donateMoney.donateOption}</option>
    								</c:forEach>
 							</select>
 						</div>
 						
+					
+						
 						<div class="form-group">
-							<label for="message"><h5><b>응원 메시지</b></h5></label>
-							<textarea class="form-control" name="message" rows="3"	placeholder="응원 메시지를 남겨주세요" required></textarea>
+							<label for="donateMessage"><h5><b>응원 메시지</b></h5></label>
+							<textarea class="form-control" name="donateMessage" rows="3"	placeholder="응원 메시지를 남겨주세요" required></textarea>
 						</div>
 						
 						<br>
@@ -149,34 +151,12 @@
 </script>
 
 <script>
-	// 후원 목적과 설명을 매핑할 객체
+	// 후원 목적과 설명을 매핑할 객체 -- 후원 목적 설명 포기! 못해먹겠네!
 	var descriptionMap = {
 		<c:forEach var="donateSelect" items="${donateSelectList}">
 			'${donateSelect.donateSelect}': '${donateSelect.donateDescription}'
 		</c:forEach>
 	};
-
-	// 함수를 만들어 후원 목적에 따른 설명을 업데이트
-	function updateDescription() {
-
-		// 선택한 후원 목적 가져오기
-		var selectedOption = document.getElementById('donateSelect').value;
-
-		// 선택한 목적에 따라 설명 업데이트
-		var description = descriptionMap[selectedOption] || '선택된 목적에 대한 설명이 없습니다.';
-		document.getElementById('descriptionOutput').innerText = description;
-	}
-
-	// 후원 목적 변경 시 이벤트 처리
-	document.getElementById('donateSelect').addEventListener('change', function() {
-		updateDescription();
-	});
-
-	// 초기 로딩 시 실행
-	window.addEventListener('load', function() {
-	// 처음에 목적에 대한 설명 업데이트
-		updateDescription();
-	});
 </script>
 
 

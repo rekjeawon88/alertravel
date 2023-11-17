@@ -53,11 +53,13 @@ public class DonateController {
 	}
 
 	@PostMapping("/payment")
-	public String payment(@Valid @ModelAttribute("donate") DonateVO donate, Errors errors, Model model) {
+	public String payment(@Valid @ModelAttribute("donate") DonateVO donate, Errors errors, Model model) throws IOException {
 		log.info("=== payment page PostMapping 접속 중 ===");
 		if (errors.hasFieldErrors()) {
 			return "donate/donate";
 		}
+		
+		service.donateRegister(donate);
 		return "/donate/payment"; // 성공적인 경우의 뷰 페이지
 	}
 

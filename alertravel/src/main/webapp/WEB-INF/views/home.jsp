@@ -9,7 +9,7 @@
 <br>
 <h1><i class="fa-solid fa-screwdriver-wrench"></i> 메인 화면 (공사 중!)</h1>
 
-<hr>
+<br>
 <br>
 
 현재 미니? 프로젝트를 진행하고 있습니다.

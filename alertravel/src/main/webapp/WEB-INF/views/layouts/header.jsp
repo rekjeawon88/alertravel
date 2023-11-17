@@ -30,7 +30,7 @@
 				<font color="white">Mini? Project</font>
 			</h1>
 			<span style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
-				<p>현재 미니? 프로젝트를 진행 중입니다.</p>
+				<p>미니 프로젝트일때 사용하던 header.jsp</p>
 			</span>
 		</header>
 
