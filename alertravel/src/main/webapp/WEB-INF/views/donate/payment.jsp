@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 
-<%@ include file="../layouts/header.jsp"%>
+<%@ include file="../layouts/header1.jsp"%>
 
 <!-- jQuery -->
 <!-- <script type="text/javascript"
@@ -41,7 +41,7 @@ out.println("후원자 메세지: " + donateMessage);
 
 <div class="text-center">
 	<button onclick="requestPay1()">체크/신용카드 결제</button>
-	<button onclick="requestPay2()">카카오페이 결제</button>
+	<button onclick="requestPay2()" style="background-color: yellow;">카카오페이 결제</button>
 	<button onclick="requestPay3()">토스페이 결제</button>
 </div>
 
