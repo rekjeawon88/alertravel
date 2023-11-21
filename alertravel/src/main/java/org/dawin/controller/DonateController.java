@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.extern.log4j.Log4j;
 
@@ -62,6 +61,10 @@ public class DonateController {
 		service.donateRegister(donate);
 		return "/donate/payment"; // 성공적인 경우의 뷰 페이지
 	}
-
+	
+	@GetMapping("/paysuccess")
+	public void paysuccess() {
+		log.info("=== paysuccess page GetMapping 접속 중 ===");
+	}
 
 }

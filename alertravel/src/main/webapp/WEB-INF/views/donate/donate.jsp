@@ -12,7 +12,7 @@
 <br>
 
 <div class="donate_title">
-	<h1><i class="fas fa-money-check skill-icon"> 후원하기</i></h1>
+    <h1>후원하기</h1>
 </div>
 
 <div class="container mt-5">
@@ -44,7 +44,7 @@
 							
 							<div class="form-group" id="phoneInput">
 								<label for="donatePhoneNumber">휴대폰 번호</label>
-								<input type="text" name="donatePhoneNumber" class="form-control" placeholder="휴대펀 번호 입력('-' 제외)" required>
+								<input type="text" name="donatePhoneNumber" class="form-control" placeholder="휴대폰 번호 입력('-' 제외)" required>
 							</div>
 							
 							<br>
@@ -161,12 +161,14 @@
 
 
 <style>
-	.donate_title {
-		padding: 50px 300px 50px; /* 패딩: 위, 좌우, 아래 */
-	    background-color: #F0A07B;
-    	border-color: #F0A07B;
-		color: white;
-	}
+    .donate_title {
+        padding: 50px 300px 50px; /* 패딩: 위, 좌우, 아래 */
+		background-image: url('/resources/images/donate.png'); 
+/*		background-color: #F0A07B;
+		border-color: #F0A07B; */
+        color: white;
+		opacity: 0.8;
+    }
 </style>
 
 <style>
@@ -178,4 +180,4 @@
 </style>
 
 
-<%@ include file="../layouts/footer.jsp"%>
+<%@ include file="../layouts/footer1.jsp"%>
