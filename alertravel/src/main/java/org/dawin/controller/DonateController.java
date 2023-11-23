@@ -29,6 +29,11 @@ public class DonateController {
 	@Autowired
 	ExchangeService exservice;
 	
+	@GetMapping("/totaldonate")
+	public void totaldonate() {
+		log.info("=== totaldonate page GetMapping 접속 중 ===");
+	}
+	
 	@GetMapping("/donate")
 	public void donateList(Model model) {
 		
