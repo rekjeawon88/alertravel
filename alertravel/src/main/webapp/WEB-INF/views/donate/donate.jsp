@@ -24,15 +24,10 @@ include file="../layouts/header1.jsp"%>
       <div class="card border-0">
         <!-- 외부 선 제거 -->
         <div class="card-body">
-          <form action="payment" method="post">
-            <!-- submit 버튼 누르면 이동할 곳 -->
-            <input
-              type="hidden"
-              name="${_csrf.parameterName}"
-              value="${_csrf.token}"
-            />
+          <form action="payment" method="post"> <!-- submit 버튼 누르면 이동할 곳 -->
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             <div class="form-group">
-              <h3><br />후원자 정보<br /></h3>
+              <h3><br>후원자 정보<br/></h3>
 
               <!-- 후원자 개인 정보 입력 -->
               <div class="form-group" id="nameInput">
