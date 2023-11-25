@@ -51,20 +51,36 @@ public class DonateController {
 		return "/donate";
 	}
 
-	@GetMapping("/payment")
-	public void payment() {
+	@GetMapping("/payment1")
+	public void payment1() {
 		log.info("=== payment page GetMapping 접속 중 ===");
 	}
 
-	@PostMapping("/payment")
-	public String payment(@Valid @ModelAttribute("donate") DonateVO donate, Errors errors, Model model) throws IOException {
-		log.info("=== payment page PostMapping 접속 중 ===");
+	@PostMapping("/payment1")
+	public String payment1(@Valid @ModelAttribute("donate") DonateVO donate, Errors errors, Model model) throws IOException {
+		log.info("=== payment1 page PostMapping 접속 중 ===");
 		if (errors.hasFieldErrors()) {
 			return "donate/donate";
 		}
 		
 		service.donateRegister(donate);
-		return "/donate/payment"; // 성공적인 경우의 뷰 페이지
+		return "/donate/payment1"; // 성공적인 경우의 뷰 페이지
+	}
+	
+	@GetMapping("/payment2")
+	public void payment2() {
+		log.info("=== payment2 page GetMapping 접속 중 ===");
+	}
+
+	@PostMapping("/payment2")
+	public String payment2(@Valid @ModelAttribute("donate") DonateVO donate, Errors errors, Model model) throws IOException {
+		log.info("=== payment2 page PostMapping 접속 중 ===");
+		if (errors.hasFieldErrors()) {
+			return "donate/donate";
+		}
+		
+		service.donateRegister(donate);
+		return "/donate/payment2"; // 성공적인 경우의 뷰 페이지
 	}
 	
 	@GetMapping("/paysuccess")

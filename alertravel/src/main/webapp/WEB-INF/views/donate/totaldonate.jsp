@@ -55,7 +55,7 @@ new Chart(document.getElementById("bar-chart"), {
     {
       label: "총 후원 금액",
       backgroundColor: ["#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2"],
-      data: [1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888]
+      data: [1111, 2222, 3333, 4444, 5555, 6666, 7777, 20000]
         }
       ]
     },
