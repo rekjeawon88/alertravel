@@ -9,9 +9,12 @@ public interface DonateMapper {
 	public List<DonateVO> getDonateMyList();
 	
 	public List<DonateVO> getDonateAmountList();
-	
 	public List<DonateVO> getDonateSelectList();
 	
 	public void insertDonate(DonateVO donate);
 	
+	public int getDonateTotalMoney();
+	public int getDonateTotalPeople();
+	
+	public List<DonateVO> getDonateOptionTotalList();
 }

@@ -31,8 +31,16 @@
 					<canvas id="bar-chart" width="300" height="230"></canvas>
 					<canvas id="bar-chart-horizontal" width="600" height="250"></canvas>
 
+					<h1>total donate money : ${donateTotalMoney}</h1>
+					<h1>total donate people : ${donateTotalPeople}</h1>
+					
 				
-				
+            <c:forEach var="donation" items="${donateOptionTotalList}">
+                <tr>
+                    <td>${donation.donateSelect}</td>
+                    <td>${donation.sumDonateMoney}</td>
+                </tr>
+            </c:forEach>
 				
 				
 					<button type="submit" class="btn btn-block" onclick="location.href='donate';">후원하러 가기</button>

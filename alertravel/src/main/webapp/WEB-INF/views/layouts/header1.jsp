@@ -126,7 +126,7 @@
 			<li class="nav-item dropdown"><a class="nav-link dropdown-title"
 				href="#" id="navbardrop" data-toggle="dropdown"> 후원하기 </a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="/donate/donate">따뜻한 마음 나누기</a>
+					<a class="dropdown-item" href="/donate/totaldonate">따뜻한 마음 나누기</a>
 				</div></li>
 		</ul>
 	</nav>

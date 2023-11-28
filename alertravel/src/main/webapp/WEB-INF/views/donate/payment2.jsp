@@ -37,7 +37,7 @@ String donateMessage = request.getParameter("donateMessage");
 	<div class="main-container">
 		<div class="inner">
 			<div class="title-container">
-				<div class="title">결제수단을 선택해주세요</div>
+				<div class="title">현금 결제수단을 선택해주세요</div>
 			</div>
 		</div>
 	</div>
@@ -48,12 +48,12 @@ String donateMessage = request.getParameter("donateMessage");
 <br>
 
 <div class="text-center">
-	<button class="rounded-button3" onclick="requestPay3()"></button>
 	<button class="rounded-button4" onclick="requestPay4()"></button>
+	<button class="rounded-button5" onclick="requestPay5()"></button>
 </div>
 
 <style>
-	.rounded-button3 {
+	.rounded-button4 {
 		display: inline-block;
 		width: 241px;	/* 버튼의 가로 크기 지정 */
 		height: 100px;	/* 버튼의 세로 크기 지정 */
@@ -62,9 +62,8 @@ String donateMessage = request.getParameter("donateMessage");
     	margin-left: 20px; /* 좌측 여백 추가 */
 		margin-right: 20px; /* 우측 여백 추가 */
 	}
-</style>
-<style>
-	.rounded-button4 {
+
+	.rounded-button5 {
 		display: inline-block;
 		width: 241px;	/* 버튼의 가로 크기 지정 */
 		height: 100px;	/* 버튼의 세로 크기 지정 */
@@ -94,7 +93,7 @@ String donateMessage = request.getParameter("donateMessage");
 	var milliseconds = today.getMilliseconds();
 	var makeMerchantUid = hours + minutes + seconds + milliseconds;
 
-	function requestPay3() {
+	function requestPay4() {
 		IMP.request_pay({
 			pg : 'kakaopay', // pg사
 			pay_method : 'card', // 결제 수단
@@ -113,7 +112,7 @@ String donateMessage = request.getParameter("donateMessage");
 		});
 	}
 
-	function requestPay4() {
+	function requestPay5() {
 		IMP.request_pay({
 			pg : 'tosspay',
 			pay_method : 'card',

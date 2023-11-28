@@ -33,6 +33,20 @@ public class DonateServiceImpl implements DonateService {
 	public void donateRegister(DonateVO donate) throws IOException {
 		mapper.insertDonate(donate);
 	}
-	
+
+	@Override
+	public int getDonateTotalMoney() {
+		return mapper.getDonateTotalMoney();
+	}
+
+	@Override
+	public int getDonateTotalPeople() {
+		return mapper.getDonateTotalPeople();
+	}
+
+	@Override
+	public List<DonateVO> getDonateOptionTotalList() {
+		return mapper.getDonateOptionTotalList();
+	}
 	
 }

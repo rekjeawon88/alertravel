@@ -37,7 +37,7 @@ String donateMessage = request.getParameter("donateMessage");
 	<div class="main-container">
 		<div class="inner">
 			<div class="title-container">
-				<div class="title">결제수단을 선택해주세요</div>
+				<div class="title">카드 및 휴대폰 결제수단을 선택해주세요</div>
 			</div>
 		</div>
 	</div>

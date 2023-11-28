@@ -1,11 +1,11 @@
 package org.dawin.domain;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
@@ -45,5 +45,8 @@ public class DonateVO {
 	
 	private String donatePayment;
 	
-	private int merchant_uid;
+	private int donateTotalPeople;
+	private int donateTotalMoney;
+	
+	private int sumDonateMoney;
 }

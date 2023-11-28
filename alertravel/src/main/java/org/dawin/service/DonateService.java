@@ -10,9 +10,13 @@ public interface DonateService {
 	public List<DonateVO> getDonateMyList();
 	
 	public List<DonateVO> getDonateAmountList();
-	
 	public List<DonateVO> getDonateSelectList();
 	
 	public void donateRegister(DonateVO donate) throws IOException;
 	
+	public int getDonateTotalMoney();
+	
+	public int getDonateTotalPeople();
+	
+	public List<DonateVO> getDonateOptionTotalList();
 }
