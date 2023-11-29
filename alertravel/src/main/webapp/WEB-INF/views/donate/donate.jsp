@@ -23,8 +23,7 @@ include file="../layouts/header1.jsp"%>
 <div class="container mt-5">
 	<div class="row justify-content-center">
 		<div class="col-md-8">
-			<div class="card border-0">
-				<!-- 외부 선 제거 -->
+			<div class="card border-0"> <!-- 외부 선 제거 -->
 				<div class="card-body">
 					<form id="donateForm" action="payment" method="post">
 						<input type="hidden" name="${_csrf.parameterName}"
@@ -33,12 +32,13 @@ include file="../layouts/header1.jsp"%>
 							<h3>
 								<br>후원자 정보<br />
 							</h3>
-
+							
+							<br>
+							
 							<!-- 후원자 개인 정보 입력 -->
 							<div class="form-group" id="nameInput">
-								<label for="donateName">성명</label> <input type="text"
-									name="donateName" class="form-control" placeholder="성명 입력"
-									required />
+								<label for="donateName">성명</label> 
+								<input type="text" name="donateName" class="form-control" placeholder="성명을 입력하세요" required />
 							</div>
 
 							<br />
@@ -46,7 +46,7 @@ include file="../layouts/header1.jsp"%>
 							<div class="form-group" id="birthdayInput">
 								<label for="donateBirthday">생년월일</label> <input type="text"
 									name="donateBirthday" class="form-control"
-									placeholder="생년월일 6자리 입력" required />
+									placeholder="생년월일 6자리를 입력하세요" required />
 								<pre>※만 14세 미만의 경우, 후원이 불가능합니다.※</pre>
 							</div>
 
@@ -55,14 +55,14 @@ include file="../layouts/header1.jsp"%>
 							<div class="form-group" id="phoneInput">
 								<label for="donatePhoneNumber">휴대폰 번호</label> <input type="text"
 									name="donatePhoneNumber" class="form-control"
-									placeholder="휴대폰 번호 입력('-' 제외)" required />
+									placeholder="휴대폰 번호를 입력하세요 ('-' 제외)" required />
 							</div>
 
 							<br />
 
 							<div class="form-group" id="emailInput">
 								<label for="donateEmail">이메일</label> <input type="text"
-									name="donateEmail" class="form-control" placeholder="이메일 주소 입력"
+									name="donateEmail" class="form-control" placeholder="이메일 주소를 입력하세요"
 									required />
 							</div>
 

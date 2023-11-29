@@ -28,74 +28,56 @@
 			<div class="card border-0"> <!-- 외부 선 제거 -->
 				<div class="card-body">
 				
-					<canvas id="bar-chart" width="300" height="230"></canvas>
 					<canvas id="bar-chart-horizontal" width="600" height="250"></canvas>
 
-					<h1>total donate money : ${donateTotalMoney}</h1>
-					<h1>total donate people : ${donateTotalPeople}</h1>
+					<h1>총 후원 금액 : ${donateTotalMoney}</h1>
+					<h1>총 후원자 수 : ${donateTotalPeople}</h1>
 					
+		            <c:forEach var="donation" items="${donateOptionTotalList}">
+						${donation.donateSelect}, ${donation.sumDonateMoney} ||
+		            </c:forEach>
 				
-            <c:forEach var="donation" items="${donateOptionTotalList}">
-                <tr>
-                    <td>${donation.donateSelect}</td>
-                    <td>${donation.sumDonateMoney}</td>
-                </tr>
-            </c:forEach>
+					<br>
+					<hr>
 				
-				
-					<button type="submit" class="btn btn-block" onclick="location.href='donate';">후원하러 가기</button>
+					<button type="submit" class="btn btn-primary btn-block" onclick="location.href='donate';">후원하러 가기</button>
+
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-
-
-
-<script>
-new Chart(document.getElementById("bar-chart"), {
-    type: 'bar',
-    data: {
-        labels: ["최빈국 희망학교 설립", "최빈국 희망학교 설립", "자연 재해민 구호", "전쟁 피난민 구호",
-	  		"국경없는의사회 지원", "테러 피해자 구호", "사막 지역에 나무 심기", "재능기부 봉사활동 지원"],
-  datasets: [
-    {
-      label: "총 후원 금액",
-      backgroundColor: ["#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2"],
-      data: [1111, 2222, 3333, 4444, 5555, 6666, 7777, 20000]
-        }
-      ]
-    },
-    options: {
-      legend: { display: false },
-      title: {
-        display: true,
-        text: '최빈국 결식 아동 식량 지원'
-      }
-    }
-});
-</script>
 <script>
 new Chart(document.getElementById("bar-chart-horizontal"), {
     type: 'horizontalBar',
     data: {
-      labels: ["최빈국 희망학교 설립", "최빈국 희망학교 설립", "자연 재해민 구호", "전쟁 피난민 구호",
-    	  		"국경없는의사회 지원", "테러 피해자 구호", "사막 지역에 나무 심기", "재능기부 봉사활동 지원"],
-      datasets: [
-        {
-          label: "총 후원 금액",
-          backgroundColor: ["#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2", "#8e5ea2"],
-          data: [1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888]
-        }
-      ]
+        labels: [
+            <c:forEach var="donation" items="${donateOptionTotalList}">
+                "${donation.donateSelect}", /* ,를 써야 data: [1000, 2000, 3000,] 이렇게 나옴 */
+            </c:forEach>
+        ],
+        datasets: [
+            {
+				label: "총 후원 금액",
+                backgroundColor: ["#87CEEB", "#FFB6C1", "#98FB98", "#FFA07A", "#800080", "#C0C0C0", "#FFD700", "#F08080"],
+                data: [
+                    <c:forEach var="donation" items="${donateOptionTotalList}">
+                        ${donation.sumDonateMoney},
+                    </c:forEach>
+                ]
+            }
+        ]
     },
     options: {
-      legend: { display: false },
-      title: {
-        display: true,
-        text: '총 후원 금액'
-      }
+        legend: { display: false },
+        title: {
+            display: true,
+            text: '총 후원 금액 통계',
+            fontSize: 16, // 원하는 크기로 조절
+            fontColor: 'black', // 텍스트 색상 지정
+            fontStyle: 'bold' // 볼드 처리
+        }
     }
 });
 </script>

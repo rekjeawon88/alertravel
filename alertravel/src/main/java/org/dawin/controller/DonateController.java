@@ -1,7 +1,7 @@
 package org.dawin.controller;
 
 import java.io.IOException;
-import java.util.stream.Collectors;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -38,14 +38,6 @@ public class DonateController {
 		model.addAttribute("donateTotalMoney", service.getDonateTotalMoney());
 		model.addAttribute("donateTotalPeople", service.getDonateTotalPeople());
 		model.addAttribute("donateOptionTotalList", service.getDonateOptionTotalList());
-		
-		log.info("도네이트 토탈머니" + service.getDonateTotalMoney());
-		log.info("도네이트 옵션 토탈" + service.getDonateOptionTotalList());
-		log.info("도네이트 옵션 토탈" + service.getDonateOptionTotalList().stream()
-		        .map(donateVO -> "DonateSelect: " + donateVO.getDonateSelect() +
-		                ", SumDonateMoney: " + donateVO.getSumDonateMoney())
-		        .collect(Collectors.toList()));
-
 	}
 	
 	@PostMapping("/totaldonate")
@@ -55,8 +47,29 @@ public class DonateController {
 		return "/donate";
 	}
 	
+	@GetMapping("/finddonate")
+	public void finddonate(Model model) {
+		
+		log.info("=== finddonate page GetMapping 접속 중 ===");
+	}
+	
+	@PostMapping("/finddonate")
+    public String finddonateSubmit(@ModelAttribute("donateVO") @Valid DonateVO donateVO, Errors errors, Model model) throws IOException {
+		
+        if (errors.hasErrors()) {
+            log.info("=== finddonate 페이지 PostMapping 접속 중 (에러 발생) ===");
+            return "finddonate";
+        }
+
+        log.info("=== finddonate 페이지 PostMapping 접속 중 ===");
+
+
+
+        return "finddonateResult";
+    }
+	
 	@GetMapping("/donate")
-	public void donateList(Model model) {
+	public void donate(Model model) {
 		
 		log.info("=== donate page GetMapping 접속 중 ===");
 		model.addAttribute("donateAmountList", service.getDonateAmountList());
