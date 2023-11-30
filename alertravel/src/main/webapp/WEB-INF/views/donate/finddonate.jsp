@@ -12,7 +12,7 @@
 	<div class="main-container">
 		<div class="inner">
 			<div class="title-container">
-				<div class="title">내 후원 목록 검색하기</div>
+				<div class="title">내 후원 기록 검색하기</div>
 				<div class="message">당신의 후원이 더 아름다운 오늘을 만들었습니다.</div>
 			</div>
 		</div>
@@ -24,8 +24,11 @@
 		<div class="col-md-8">
 			<div class="card border-0"> <!-- 외부 선 제거 -->
 				<div class="card-body">
-					<h5 class="card-title">후원자 정보</h5>
-					<form action="${pageContext.request.contextPath}/donate/finddonate" method="post">
+					<h3 class="card-title">
+						<b>후원자 정보</b>
+					</h3>
+					<form action="finddonate" method="post" onsubmit="showResults();">
+						<input type="hidden" name="${_csrf.parameterName}"	value="${_csrf.token}" />
 				
 						<br>
 						<br>
@@ -51,28 +54,28 @@
 						
 						<br>
 						
-						<button type="submit" class="btn btn-primary btn-block">검색하기</button>
+						<button type="submit" class="btn btn-primary btn-block" style="background-color: #0e7886;">검색하기</button>
 					</form>
 					
-					
-					<!-- 여기에 결과를 표시할 부분 추가 -->
-					<c:if test="${not empty donateMyList}">
-                    	<div class="mt-3">
-                        	<h5>검색 결과</h5>
-							<c:forEach var="donate" items="${donateMyList}">
-                            	<p>
-                                    Donate Number: ${donate.donateNumber}<br>
-                                    Donate Date: ${donate.donateDate}<br>
-                                    Donate Payment: ${donate.donatePayment}<br>
-                                    Donate Name: ${donate.donateName}<br>
-                                    Donate Birthday: ${donate.donateBirthday}<br>
-                                    Donate Phone Number: ${donate.donatePhoneNumber}<br>
-                                    <!-- 여기에 필요한 속성들 추가 -->
-                                </p>
-                            </c:forEach>
-                        </div>
-                    </c:if>
-					
+										
+					 <!-- 여기에 결과를 표시할 부분 추가 -->
+					<c:choose>
+					    <c:when test="${empty donateMyList}">
+					        <p id="noRecordsMessage" style="display:none;">No donation records found.</p>
+					    </c:when>
+					    <c:otherwise>
+					        <p id="noRecordsMessage">No donation records found.</p>
+					        <c:forEach var="donate" items="${donateMyList}">
+					            <p class="donateResult">
+					                Donate Date: ${donate.donateDate}<br>
+					                Donate Payment: ${donate.donatePayment}<br>
+					                Donate Name: ${donate.donateName}<br>
+					                <!-- 다른 속성들도 필요에 따라 추가 -->
+					            </p>
+					        </c:forEach>
+					    </c:otherwise>
+					</c:choose>
+										
 					
 				</div>
 			</div>
@@ -92,7 +95,16 @@
 }
 </style>
 
-
+<script>
+    // 검색 결과가 있을 때 결과를 표시하는 함수
+    function showResults() {
+        document.getElementById("noRecordsMessage").style.display = "none";
+        var results = document.getElementsByClassName("donateResult");
+        for (var i = 0; i < results.length; i++) {
+            results[i].style.display = "block";
+        }
+    }
+</script>
 
 
 

@@ -2,11 +2,13 @@ package org.dawin.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.dawin.domain.DonateVO;
 
 public interface DonateMapper {
-	
-	public List<DonateVO> getDonateMyList();
+
+	public List<DonateVO> getDonateMyList(String donateName, String donatePhoneNumber, String donateBirthday);
 	
 	public List<DonateVO> getDonateAmountList();
 	public List<DonateVO> getDonateSelectList();

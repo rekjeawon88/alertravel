@@ -54,23 +54,15 @@
 		from tbl_donate_member
 	</select>
 
-<!-- <select id="getDonateOptionTotalList" resultType="DonateVO">
-	    select donate_select, sum(donate_money) as sumDonateMoney
-	    from tbl_donate_member
-	    group by donate_select
-	</select> -->
+	<select id="getDonateOptionTotalList" resultMap="donateOptionTotalResultMap">
+	    SELECT donate_select, sum(donate_money) as sumDonateMoney
+	    FROM tbl_donate_member
+	    GROUP BY donate_select;
+	</select>
 	
-	<!-- DonateMapper.xml -->
-
-<select id="getDonateOptionTotalList" resultMap="donateOptionTotalResultMap">
-    SELECT donate_select, sum(donate_money) as sumDonateMoney
-    FROM tbl_donate_member
-    GROUP BY donate_select;
-</select>
-
-<resultMap id="donateOptionTotalResultMap" type="DonateVO">
-    <result property="donateSelect" column="donate_select"/>
-    <result property="sumDonateMoney" column="sumDonateMoney"/>
-</resultMap>
+	<resultMap id="donateOptionTotalResultMap" type="DonateVO">
+	    <result property="donateSelect" column="donate_select"/>
+	    <result property="sumDonateMoney" column="sumDonateMoney"/>
+	</resultMap>
 	
 </mapper>

@@ -15,38 +15,102 @@
 		<div class="inner">
 			<div class="title-container">
 				<div class="title">따뜻한 마음 나누기</div>
-				<div class="message">현재 후원 현황을 확인하고 블라블라블라</div>
+				<div class="message">현재 후원 현황을 확인하고 직접 후원을 하실 수 있습니다.</div>
 			</div>
 		</div>
 	</div>
 </section>
 
+<br>
+<br>
+<br>
 
 <div class="container mt-5">
 	<div class="row justify-content-center">
 		<div class="col-md-8">
 			<div class="card border-0"> <!-- 외부 선 제거 -->
 				<div class="card-body">
-				
-					<canvas id="bar-chart-horizontal" width="600" height="250"></canvas>
-
-					<h1>총 후원 금액 : ${donateTotalMoney}</h1>
-					<h1>총 후원자 수 : ${donateTotalPeople}</h1>
 					
-		            <c:forEach var="donation" items="${donateOptionTotalList}">
-						${donation.donateSelect}, ${donation.sumDonateMoney} ||
-		            </c:forEach>
-				
+					<canvas id="bar-chart-horizontal" width="1000" height="500"></canvas>
+					
 					<br>
-					<hr>
+					<br>
+					<br>
+					<br>
+					<br>
+					<hr color="#0e7886" />
+					<br>
+					<br>
+					
+					<div style="text-align: center;">
+						<h3 style="color: #0e7886"><strong>얼마나 많은 분들께서 따뜻한 마음을 나눠주셨을까요?</strong></h3>
+						<br>
+						<br>
+						<br>
+						<div style="position: relative; display: inline-block;">
+							<img src="/resources/images/love.gif" alt="love" style="display: block; margin: 0 auto; width: 60%;">
+					
+							<span class="font-weight-bold" style="font-size: 2em;color: #FDD835;position: absolute;top: 150px;left: 50%;transform: translate(-50%, -50%);">
+								${donateTotalPeople}명
+							</span>
+						</div>
+					</div>
+					
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<hr color="#0e7886" />
+					<br>
+					<br>
+
+					<div style="text-align: center;">
+						<h3 style="color: #0e7886;"><strong>얼마나 많은 따뜻하고 소중한 마음이 모였을까요?</strong></h3>
+						<br>
+						<br>
+						<br>
+						<div style="position: relative; display: inline-block; text-align: center;">
+					    	<img src="/resources/images/fillingheart.gif" alt="love" style="width: 150%; max-width: 100%; height: auto; margin: 0 auto;">
+					
+							<span class="font-weight-bold" style="font-size: 2em; color: #FDD835; position: absolute; top: 90px; left: 50%; transform: translate(-50%, -50%); width: 300px;">
+								${donateTotalMoney}원
+							</span>
+						</div>
+					</div>
+
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<hr color="#0e7886" />
+					<br>
+					<br>
+					
+					<h2 style="text-align: center; color:#0e7886;"><strong>
+					    남을 돕는 것은 생각보다 어렵지 않습니다. <br><br>
+					    지금 바로 후원해보세요!
+					</strong></h2>
+					
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
 				
-					<button type="submit" class="btn btn-primary btn-block" onclick="location.href='donate';">후원하러 가기</button>
+					<button type="submit" class="btn btn-primary btn-block" onclick="location.href='donate';" style="background-color: #0e7886;">
+					    후원하러 가기
+					</button>
 
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <script>
 new Chart(document.getElementById("bar-chart-horizontal"), {
@@ -73,8 +137,8 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
         legend: { display: false },
         title: {
             display: true,
-            text: '총 후원 금액 통계',
-            fontSize: 16, // 원하는 크기로 조절
+            text: '총 후원 금액 통계(후원 안된 목적은 표기 안됨)',
+            fontSize: 24, // 원하는 크기로 조절
             fontColor: 'black', // 텍스트 색상 지정
             fontStyle: 'bold' // 볼드 처리
         }

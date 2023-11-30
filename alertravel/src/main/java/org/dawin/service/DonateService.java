@@ -7,7 +7,7 @@ import org.dawin.domain.DonateVO;
 
 public interface DonateService {
 	
-	public List<DonateVO> getDonateMyList();
+	public List<DonateVO> getDonateMyList(DonateVO donate);
 	
 	public List<DonateVO> getDonateAmountList();
 	public List<DonateVO> getDonateSelectList();

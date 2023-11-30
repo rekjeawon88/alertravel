@@ -51,21 +51,22 @@ public class DonateController {
 	public void finddonate(Model model) {
 		
 		log.info("=== finddonate page GetMapping 접속 중 ===");
+		/* model.addAttribute("donateMyList", service.getDonateMyList()); */
 	}
 	
 	@PostMapping("/finddonate")
-    public String finddonateSubmit(@ModelAttribute("donateVO") @Valid DonateVO donateVO, Errors errors, Model model) throws IOException {
+    public String finddonateSubmit(@ModelAttribute("donate") @Valid DonateVO donate, Errors errors, Model model) throws IOException {
 		
         if (errors.hasErrors()) {
             log.info("=== finddonate 페이지 PostMapping 접속 중 (에러 발생) ===");
-            return "finddonate";
+            return "donate/finddonate";
         }
 
-        log.info("=== finddonate 페이지 PostMapping 접속 중 ===");
+        log.info("=== finddonate page PostMapping 접속 중 ===");
 
+        service.getDonateMyList(donate);
 
-
-        return "finddonateResult";
+        return "/donate/finddonate";
     }
 	
 	@GetMapping("/donate")

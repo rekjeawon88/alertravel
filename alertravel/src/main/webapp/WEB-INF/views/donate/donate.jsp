@@ -25,14 +25,17 @@ include file="../layouts/header1.jsp"%>
 		<div class="col-md-8">
 			<div class="card border-0"> <!-- 외부 선 제거 -->
 				<div class="card-body">
-					<form id="donateForm" action="payment" method="post">
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
+					<%-- <form action="payment" method="post"> --%>
+					<form action="" method="post" id="donationForm">
+						<input type="hidden" name="${_csrf.parameterName}"	value="${_csrf.token}" />
 						<div class="form-group">
+							<br>
 							<h3>
-								<br>후원자 정보<br />
+								<b>후원자 정보</b>
 							</h3>
 							
+							<br>
+							<hr color="15bdb1" />
 							<br>
 							
 							<!-- 후원자 개인 정보 입력 -->
@@ -71,7 +74,7 @@ include file="../layouts/header1.jsp"%>
 							<br />
 
 							<!-- 후원 목적 선택창 -->
-							<label for="select"><b><h5>후원 목적 선택</h5></b></label> <select
+							<label for="select"><h5><b>후원 목적 선택</b></h5></label> <select
 								class="form-control" name="donateSelect" id="donateSelect">
 								<option value="donateSelect">== 후원 목적 선택 ==</option>
 								<c:forEach var="donateSelect" items="${donateSelectList}">
@@ -81,7 +84,7 @@ include file="../layouts/header1.jsp"%>
 							</select> <br /> <br />
 
 							<!-- 후원 금액 선택창 -->
-							<label for="donateOption"><b><h5>후원 금액 선택</h5></b></label> <select
+							<label for="donateOption"><h5><b>후원 금액 선택</b></h5></label> <select
 								class="form-control" name="donateMoney" id="donateMoney">
 								<option value="donateMoney">== 후원 금액 선택 ==</option>
 								<c:forEach var="donateMoney" items="${donateAmountList}">
@@ -141,23 +144,13 @@ include file="../layouts/header1.jsp"%>
 	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var form = document.getElementById('donateForm');
-        var cardButton = document.getElementById('cardButton');
-        var cashButton = document.getElementById('cashButton');
+document.getElementById("cardButton").addEventListener("click", function() {
+	document.getElementById("donationForm").action = "payment1";
+});
 
-        cardButton.addEventListener('click', function() {
-            // "카드 결제하기" 버튼을 클릭하면 폼의 action을 변경하고 서브밋
-            form.action = 'payment1';
-            form.submit();
-        });
-
-        cashButton.addEventListener('click', function() {
-            // "현금 결제하기" 버튼을 클릭하면 폼의 action을 변경하고 서브밋
-            form.action = 'payment2';
-            form.submit();
-        });
-    });
+document.getElementById("cashButton").addEventListener("click", function() {
+	document.getElementById("donationForm").action = "payment2";
+});
 </script>
 
 <script>
