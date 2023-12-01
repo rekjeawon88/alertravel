@@ -8,9 +8,6 @@ import org.dawin.mapper.DonateMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.log4j.Log4j;
-
-@Log4j
 @Service
 public class DonateServiceImpl implements DonateService {
 	
@@ -19,9 +16,8 @@ public class DonateServiceImpl implements DonateService {
 
 	@Override
 	public List<DonateVO> getDonateMyList(DonateVO donate) {
-	    return mapper.getDonateMyList(donate.getDonateName(), donate.getDonatePhoneNumber(), donate.getDonateBirthday());
+	    return mapper.getDonateMyList(donate);
 	}
-
 	
 	@Override
 	public List<DonateVO> getDonateSelectList() {
