@@ -69,8 +69,10 @@
 		<div class="inner">
 			<div class="head-container">
 				<div class="head-brand">
-					<a href="/"><img class="head-logo"
-						src="../resources/images/AlertravelLogo.png" alt="Alertravel" /></a>
+					<a href="/">
+						<img class="head-logo" src="../resources/images/AlertravelLogo.png" alt="Alertravel" 
+						style="margin-left: 0px; margin-top: 0px; margin-right: 0px;">
+					</a>
 				</div>
 				<div class="head-login-container">
 					<sec:authorize access="isAuthenticated()">
@@ -97,40 +99,53 @@
 	</header>
 
 
-	<!-- 메뉴바와 관련된 코드입니다. -->
-	<nav class="navbar navbar-expand-sm navbar-color">
-		<ul class="navbar-nav">
-			<!-- Dropdown -->
-			<li class="nav-item dropdown"><a class="nav-link dropdown-title"
-				href="#" id="navbardrop" data-toggle="dropdown"> 해외안전정보 </a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="/alarm/list">단계별 여행 경보</a> <a
-						class="dropdown-item" href="#">공지사항</a>
-				</div></li>
-			<li class="nav-item dropdown"><a class="nav-link dropdown-title"
-				href="#" id="navbardrop" data-toggle="dropdown"> 소통마당 </a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">소통 게시판</a>
-				</div></li>
-			<li class="nav-item dropdown"><a class="nav-link dropdown-title"
-				href="#" id="navbardrop" data-toggle="dropdown"> 편의기능 </a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item"
-						href="https://www.passport.go.kr/home/kor/main.do">여권 분실 시 <i
-						class="fa-solid fa-up-right-from-square"></i>
-					</a> <a class="dropdown-item"
-						href="https://www.0404.go.kr/callcenter/callcenter_intro.jsp">영사콜
-						센터 <i class="fa-solid fa-up-right-from-square"></i>
-					</a>
-				</div></li>
-			<li class="nav-item dropdown"><a class="nav-link dropdown-title"
-				href="#" id="navbardrop" data-toggle="dropdown"> 후원하기 </a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="/donate/totaldonate">따뜻한 마음 나누기</a>
-				</div></li>
-		</ul>
-	</nav>
-
+    <nav class="navigation-bar">
+        <ul>
+            <li>
+            	<div class="navigation-img">
+            		<img src="../resources/images/icon01-off.png"><a href="#">&nbsp 해외안전정보</a>
+            	</div>
+      		</li>
+            <li><div class="navigation-img"><img src="../resources/images/icon02-off.png"><a href="#">&nbsp 소통마당</a></div></li>
+            <li><div class="navigation-img"><i class="fa-solid fa-signs-post" style="color: #ffffff; font-size: 1.9rem; vertical-align: bottom;"></i><a href="#">&nbsp 편의기능</a></div></li>
+            <li><div class="navigation-img"><img src="../resources/images/icon04-off.png"><a href="#">&nbsp 후원하기</a></div></li>
+        </ul>
+        
+        <div class="navigation-contents">
+            <ul class="alarm-post">
+                <li><a href="/alarm/list">단계별 여행경보</a></li>
+                <li><a href="/notice/notice">공지사항</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+            <ul class="community-post">
+                <li><a href="/board/list">소통게시판</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+            <ul class="convenient-post">
+                <li><a href="#" onClick="window.open('https://www.passport.go.kr/home/kor/main.do','_blank','width=1000px,height=800px')">여권분실시</a></li>
+                <li><a href="#" onClick="window.open('https://www.0404.go.kr/callcenter/callcenter_intro.jsp','_blank','width=1000px,height=800px')">영사콜센터</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+            <ul class="donate-post">
+                <li><a href="/donate/totaldonate">따뜻한 마음 나누기</a></li>
+            	<li><a href="/donate/finddonate">내 후원 내역 검색하기</a></li>
+            	<li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+    </nav>
 
 
 	<!-- 로그아웃과 관련된 코드입니다. -->
@@ -147,3 +162,29 @@
 			});
 		});
 	</script>
+	
+	<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var navItems = document.querySelectorAll('.navigation-bar ul li');
+    var navContents = document.querySelector('.navigation-contents');
+    var isMouseOverContent = false;
+    navContents.addEventListener('mouseover', function() {
+      isMouseOverContent = true;
+    });
+    navContents.addEventListener('mouseout', function() {
+      isMouseOverContent = false;
+      navContents.style.display = 'none';
+    });
+    navItems.forEach(function(item) {
+      item.addEventListener('mouseover', function() {
+        navContents.style.display = 'flex';
+      });
+      item.addEventListener('mouseout', function() {
+       
+        if (!isMouseOverContent) {
+          navContents.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

@@ -18,6 +18,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.extern.log4j.Log4j;
+
+@Log4j
 @Service
 public class ExchangeServiceImpl implements ExchangeService {
 	@Override
@@ -49,6 +52,7 @@ public class ExchangeServiceImpl implements ExchangeService {
 		}
 		return lists;
 	}
+	
 	public static ResponseEntity requestApi(String url) {
 
 		HttpEntity<MultiValueMap<String, String>> tokenRequest = new HttpEntity<>(null);

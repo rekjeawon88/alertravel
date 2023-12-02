@@ -16,7 +16,7 @@
 		<!-- 좌측 메뉴 -->
 		<ul class="navbar-nav">
 			<li class="nav-item">
-				<a class="nav-link" href="/donate/totaldonate">
+				<a class="nav-link" href="/donate/donate">
 					<i class="fa-solid fa-screwdriver-wrench"></i> 후원하기
 				</a>
 			</li>

@@ -6,60 +6,56 @@
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
 
-<%@ include file="../layouts/header.jsp"%>
+<%@ include file="../layouts/header1.jsp"%>
 
+
+
+<section class="mypage-main">
+	<div class="main-container">
+		<div class="inner">
+			<div class="title-container">
+				<div class="title">마이 페이지</div>
+				<div class="message">
+					멋진 당신을 다른 사람에게 소개하세요.
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 <sec:authentication property="principal.member" var="member" />
 
-<script>
-	
-</script>
-
-<br>
-<br>
-<br>
-
-<div class="text-center">
-	<img src="/resources/images/mainecoon.jpg" class="profileImage" />
+<div class="profile-item">
+	<img src="/resources/images/basic-profile.png" class="profileImage" />
+		<div class="user-info-item">
+		<br/>
+			<div>
+				✏️ 아이디: ${member.username}
+			</div>
+			<c:if test="${member.email != null}" >
+			<br/>
+				<div>
+					✉️ 이메일: ${member.email}
+				</div>
+			</c:if>
+			<br/>
+			<div>
+				 🗓️ 가입일:
+				<fmt:formatDate value="${member.regDate}" pattern="yyyy-MM-dd HH:mm" />
+			</div>
+			<br>
+			<div>
+				🛠️ 수정일:
+					<fmt:formatDate value="${member.updateDate}" pattern="yyyy-MM-dd HH:mm" />
+			</div>
+			<c:if test="${member.email != null}" >
+			
+			<div class="update-item">
+				<button type="button" class="btn btn-primary" onclick="location.href='/security/change_password?username=${member.username }'">
+				<i class="fa-solid fa-user-pen"></i> 비밀번호 변경
+				</button>
+			</div>
+			</c:if>
+		</div>
 </div>
 
-<br>
-<br>
-
-<div>
-	<h4>
-		<i class="fa-solid fa-id-card"></i> 아이디: ${member.username}
-	</h4>
-</div>
-<br>
-<div>
-	<h4>
-		<i class="fa-solid fa-at"></i> 이메일: ${member.email}
-	</h4>
-</div>
-<br>
-<div>
-	<h4>
-		<i class="fa-solid fa-calendar-days"></i> 가입일:
-		<fmt:formatDate value="${member.regDate}" pattern="yyyy-MM-dd HH:mm" />
-	</h4>
-</div>
-<br>
-<div>
-	<h4>
-		<i class="fa-solid fa-calendar-plus"></i> 수정일:
-		<fmt:formatDate value="${member.updateDate}"
-			pattern="yyyy-MM-dd HH:mm" />
-	</h4>
-</div>
-
-<br>
-<br>
-
-<div class="text-right">
-	<button type="button" class="btn btn-primary"
-		onclick="location.href='/security/update'">
-		<i class="fa-solid fa-user-pen"></i> 내 정보 수정
-	</button>
-</div>
-
-<%@ include file="../layouts/footer.jsp"%>
+<%@ include file="../layouts/footer1.jsp"%>
