@@ -6,6 +6,13 @@
 
 <br>
 
+## 개요
+- **프로젝트 이름**: AlerTravel
+- **프로젝트 기간**: 2023. 10 ~ 2023. 12
+- **핵심 기능**: 전세계 여행경보 단계 조회, 게시판, 회원가입, 후원 결제, 
+
+<br>
+
 ## **SKILL**
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&color=E57C6E">
