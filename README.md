@@ -6,23 +6,27 @@
 
 <br>
 
-## 개요
-- **프로젝트 이름**: AlerTravel
-- **프로젝트 기간**: 2023. 10 ~ 2023. 12
-- **핵심 기능**: 전세계 여행경보 단계 조회, 불우 국가 후원 기능, 나라별 게시판, 회원가입
+## **SKILL**
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&color=E57C6E">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white&color=5B7F99">
+  <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white&color=A28BAA">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white&color=E8C24B">
+  <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white&color=7D9FB5">
+  <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white&color=F1A0A0">
+  <img src="https://img.shields.io/badge/DBeaver-1B1F23?style=for-the-badge&logo=dbeaver&logoColor=white&color=4A4A4A">
+  <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white&color=7BBF7D"> 
+  <br>
+  <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white&color=7BBF7D">
+  <img src="https://img.shields.io/badge/Apache_Tomcat-F8C146?style=for-the-badge&logo=apachetomcat&logoColor=white&color=D9B465">
+  <img src="https://img.shields.io/badge/Sourcetree-0052CC?style=for-the-badge&logo=sourcetree&logoColor=white&color=4B7DC0">
+  <img src="https://img.shields.io/badge/FileZilla-003B57?style=for-the-badge&logo=filezilla&logoColor=white&color=4A7E9D">
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white&color=73B88B">
+</p>
 
 <br>
 
-## Skill
-<span>
-  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
-  <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
-</span>
 
-<br>
 <!--
 ## ERD
 ![전체 ERD 2024 12 23](https://github.com/user-attachments/assets/2918fdc3-271e-4eb6-b9e4-ad06b6db2559)
