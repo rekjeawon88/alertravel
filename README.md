@@ -75,11 +75,11 @@
 <br>
 <br>
 
-<img src="readmeImage/개발환경.png" style="width: 100%" alt="no pic">
+![Image](https://github.com/user-attachments/assets/90d8b0ca-769d-4e35-aff0-61bfda2725c1)
 
 <span id="1.4"></span>
 ## 3. 프로젝트 진행 일정
-<img src="readmeImage/WBS.png" style="width: 100%" alt="no pic">
+![Image](https://github.com/user-attachments/assets/5b3b4102-e82e-4bb7-aab4-d74afc39aa89)
 
 
 ### 📝 [팀 노션](https://www.notion.so/a74afdd37147457cbea7665aa78032c4?v=ab7196d807424347990406a26bf8d8b7)
@@ -153,7 +153,7 @@
 이름, 전화번호, 이메일을 입력하여 후원 내역을 확인
 
 ### 결제 화면
-<img src="readmeImage/결제기능.gif" style="width: 100%" alt="no pic">
+![Image](https://github.com/user-attachments/assets/04bffbca-2c95-4098-ba09-692b42533b5f)
 
 
 
