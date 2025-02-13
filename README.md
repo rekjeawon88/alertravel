@@ -67,7 +67,7 @@
 여행경보에 대한 다양한 내용은 있지만 공공기관 사이트 특성상 민원접수를 제외하면 단방향 소통에 그침
 
 
-<span id="1.3"></span>
+<span id="1.2"></span>
 ## 2. 개발 환경 및 사용 기술
 
 #### Front-end
@@ -82,7 +82,7 @@
 
 <img src="readmeimage/개발환경.png" style="width: 100%" alt="no pic">
 
-<span id="1.4"></span>
+<span id="1.3"></span>
 ## 3. 프로젝트 진행 일정
 <img src="readmeimage/WBS.png" style="width: 100%" alt="no pic">
 
