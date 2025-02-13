@@ -1,95 +1,160 @@
-# 🤔  “우리가 여행갈 곳은 안전할까?” AlerTravel
+## 🌏 AlerTravel  ( 2023.10.25 ~ 2023.12.08 )
 
-> SpringBoot 외교부의 여행경보제도 API를 활용한 **여행경보 정보 제공 웹사이트**
+> 'AlerTravel'은 해외 여행 계획 수립 시, 보다 안전하고 원하는 정보를 쉽고 빠르게 얻기 위한 사이트입니다.
 
-> <i>팀 프로젝트 (5인)</i>
-
-<br>
-
-## 개요
-- **프로젝트 이름**: AlerTravel
-- **프로젝트 기간**: 2023. 10 ~ 2023. 12
-- **핵심 기능**: 전세계 여행경보 단계 조회, 게시판, 회원가입, 후원 결제, 
+<img src="readmeImage/메인로고.png" style="width: 100%" alt="no pic">
 
 <br>
 
-## **SKILL**
-<p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&color=E57C6E">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white&color=5B7F99">
-  <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white&color=A28BAA">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white&color=E8C24B">
-  <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white&color=7D9FB5">
-  <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white&color=F1A0A0">
-  <img src="https://img.shields.io/badge/DBeaver-1B1F23?style=for-the-badge&logo=dbeaver&logoColor=white&color=4A4A4A">
-  <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white&color=7BBF7D"> 
-  <br>
-  <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white&color=7BBF7D">
-  <img src="https://img.shields.io/badge/Apache_Tomcat-F8C146?style=for-the-badge&logo=apachetomcat&logoColor=white&color=D9B465">
-  <img src="https://img.shields.io/badge/Sourcetree-0052CC?style=for-the-badge&logo=sourcetree&logoColor=white&color=4B7DC0">
-  <img src="https://img.shields.io/badge/FileZilla-003B57?style=for-the-badge&logo=filezilla&logoColor=white&color=4A7E9D">
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white&color=73B88B">
-</p>
+---
 
-<br>
+## 역할 분담
+- 팀명 : Da-win
+> **전승민 (PL)** : 여행 경보 페이지 구현, 여행 경보 DB 설계, 회원 관리 기능 구현, 프로젝트 총괄, 디버깅, 발표([@HermitCrapOfLine](https://github.com/HermitCrapOfLine))<br>
+> **김재원** : 후원하기 페이지 구현, 후원관련 DB 설계, 결제 기능 구현([@rekjeawon88](https://github.com/rekjeawon88))<br>
+> **박예경** : 네비게이션 바 디자인, 디자인 자료 조사<br>
+> **안남기** : 공지사항 페이지 구현, 공지사항 DB 설계, 환율 기능 구현, 발표자료 제작([@namgi00](https://github.com/namgi00))<br>
+> **장지호** : ERD 기획 및 관리<br>
+> **하지현** : 메인 화면 지도 구현, 소통게시판 구현 및 DB 설계, 국가별 기본정보·현지연락처 화면 구현 및 DB 설계([@marchislike](https://github.com/marchislike))<br>
 
 
-<!--
-## ERD
-![전체 ERD 2024 12 23](https://github.com/user-attachments/assets/2918fdc3-271e-4eb6-b9e4-ad06b6db2559)
-
-<br>
-
-
-## 화면 구성
-
-|메인 화면|지역 게시판|
-|:---:|:---:|
-|<img src="https://github.com/user-attachments/assets/750fb26e-efb9-483b-ae55-cd6c016ef47c" width="500"/>|<img src="https://github.com/user-attachments/assets/59425431-c846-4eef-aa36-32798231dbb0" width="500"/>|
-
-|회원 가입|게시글 상세|
-|:---:|:---:|
-|<img src="https://github.com/user-attachments/assets/3bab7bb7-0cae-4c01-b415-be48eed58992" width="500"/>|<img src="https://github.com/user-attachments/assets/323ea2cf-5dda-4af7-9daf-9b2f8c9e1b80" width="500"/>|
-
-## 💡 주요 기능
-
-|측정소명 자동 완성|
-|:---:|
-|<img src="https://github.com/user-attachments/assets/86802642-3f98-4169-8c1a-fb4f5d2dd9e5" width="500"/>|
-|<div align="left">▪︎  검색 가능한 측정소명을 자동 완성</div>|
-
-
-|북마크|
-|:---:|
-|<img src="https://github.com/user-attachments/assets/85f74e5b-fbc3-4601-a7b2-9d68480cee59" width="500"/>|
-|<div align="left">▪︎  측정소를 북마크해 빠른 조회 가능<br>▪︎  버튼을 통해 북마크 설정, 반복 클릭 시 해제</div>|
-
-
-|이메일 인증 회원가입|
-|:---:|
-|<img src="https://github.com/user-attachments/assets/24980913-7196-4e0a-a211-06bd87db522a" width="500"/>|
-|<div align="left">▪︎  회원가입 시 이메일 인증 필요<br>▪︎  인증코드 입력 시 이메일 인증 통과</div>|
-
-<br>
-
-## 진행하면서 마주친 어려움 & 체득한 부분
-- **Development**
-    - [AJAX fetch를 활용한 검색어 자동 완성 기능 구현](https://velog.io/@kanmi10/%EA%B2%80%EC%83%89%EC%96%B4-%EC%9E%90%EB%8F%99-%EC%99%84%EC%84%B1-%EA%B8%B0%EB%8A%A5)
-    - [AJAX와 자료구조의 특징을 고려한 북마크 기능 구현](https://velog.io/@kanmi10/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-%EB%B6%81%EB%A7%88%ED%81%AC-%EA%B8%B0%EB%8A%A5-%EC%B6%94%EA%B0%80)
-    - [Bean Validation을 이용한 회원가입 폼 검증](https://velog.io/@kanmi10/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-Bean-Validation)
-    - [게시판 페이징 구현기](https://velog.io/@kanmi10/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B2%8C%EC%8B%9C%ED%8C%90-%ED%8E%98%EC%9D%B4%EC%A7%95) 
-    - [Spring Boot 이메일 인증을 활용한 회원가입 시스템 구현](https://velog.io/@kanmi10/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EC%9D%B8%EC%A6%9D-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85-1) 
-- **Design & Data Management**
-    - [대기오염 데이터 DB 저장 구조 설계](https://velog.io/@kanmi10/%EB%8C%80%EA%B8%B0%EC%98%A4%EC%97%BC-API-DB-%EC%A0%80%EC%9E%A5-%EB%B0%A9%EC%8B%9D-%EA%B3%A0%EB%AF%BC) 
-    - [타임리프 템플릿 조각을 활용한 HTML 관리](https://velog.io/@kanmi10/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%99%88-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%99%88-HTML-%EB%B6%84%EB%A6%AC)
-    - [회원 탈퇴 기능 Soft / Hard Delete 고민](https://velog.io/@kanmi10/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EC%9B%90%ED%83%88%ED%87%B4-%EA%B8%B0%EB%8A%A5)
-- **Refactoring**
-    - [필터, 인터셉터를 활용한 공통 관심사 분리](https://velog.io/@kanmi10/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%B2%98%EB%A6%AC-%ED%95%84%ED%84%B0-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0)
-    - [리포지토리 순수 JDBC → MyBatis 리팩토링](https://velog.io/@kanmi10/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%88%9C%EC%88%98-JDBC-MyBatis-%EC%A0%81%EC%9A%A9-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81) 
-    - [MyBatis 배치 처리로 대기오염 데이터 업데이트 성능 최적화](https://velog.io/@kanmi10/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-MyBatis-%EB%B0%B0%EC%B9%98%EC%9E%91%EC%97%85) 
-- **Test & Problem**
-    - [MyBatis <foreach> 다중 쿼리 제한 문제 해결](https://velog.io/@kanmi10/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-MyBatis-foreach-%EB%8B%A4%EC%A4%91-%EC%BF%BC%EB%A6%AC-update)
-    - [H2 임베디드 모드를 활용한 테스트 코드 작성](https://velog.io/@kanmi10/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-H2-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EB%AA%A8%EB%93%9C%EB%A1%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1)
- 
-  -->
+<img src="readmeImage/팀원소개.png" style="width: 100%" alt="no pic">
   
+
+  ---
+
+## 목차
+
+<details markdown="1">
+<summary>프로젝트 개요</summary>
+
+[프로젝트 개요](#1)<br/>
+    [1. 주제 선정 동기](#1.1)<br/>
+    [2. 개발 환경 및 사용 기술](#1.2)<br/>
+    [3. 프로젝트 진행 일정](#1.3)
+</details>
+
+<details markdown="1">
+<summary>서비스 설계</summary>
+
+[서비스 설계](#2)<br/>
+    [1. 설계 산출물](#2.1)<br/>
+    [2. 서비스 별 기능](#2.2)
+</details>
+
+---
+---
+
+<span id="1"></span>
+## 프로젝트개요
+
+<span id="1.1"></span>
+## 1. 주제 선정 동기
+💡 해외여행경보와 여행후기를 한눈에 볼 수 있는 사이트의 필요성
+
+💡 여행후기로는 위험 지역을 포함하여 생생한 경험을 나누고 안전에 대한 경각심을 제고
+
+### 프로젝트 선정 배경
+> 해외 여행을 준비하는 여행각들이 많아지면서 여행을 준비하는 국가의 현재 안전 여부를 파악하기에 실제 여행객들의 방문 후기를 모아 제공되는 서비스가 부족하고, 무분별한 광고로 인해 현실적으로 정확하지 않아 용이하지 않습니다. 또한, 여행 국가의 실제 안전경보와 여행객들이 생각하고 있는 안전정보가 일치하지 않는 경우가 많아 여행객들에게 안전에 대한 경각심을 제고하기 위해 "AlerTravel"을 개발하기로 결정하였습니다. <br> AlerTravel은 전세계 국가의 경보단계를 알려주고, 실제 사용자들간의 소통할 수 있는 서비스를 제공합니다.
+
+### 벤치 마킹 사이트의 한계점
+<img src="readmeImage/벤치마킹사이트.png" style="width: 100%" alt="no pic">
+여행경보에 대한 다양한 내용은 있지만 공공기관 사이트 특성상 민원접수를 제외하면 단방향 소통에 그침
+
+
+<span id="1.3"></span>
+## 2. 개발 환경 및 사용 기술
+
+#### Front-end
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-logo&logo=JavaScript&logoColor=white"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-logo&logo=HTML5&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-logo&logo=CSS3&logoColor=white">
+
+
+#### Back-end
+<img src="https://img.shields.io/badge/spring-green"> <img src="https://img.shields.io/badge/mysql-blue"> <img src="https://img.shields.io/badge/mybatis-red"> 
+
+<br>
+<br>
+
+<img src="readmeImage/개발환경.png" style="width: 100%" alt="no pic">
+
+<span id="1.4"></span>
+## 3. 프로젝트 진행 일정
+<img src="readmeImage/WBS.png" style="width: 100%" alt="no pic">
+
+
+### 📝 [팀 노션](https://www.notion.so/a74afdd37147457cbea7665aa78032c4?v=ab7196d807424347990406a26bf8d8b7)
+### 🗄️ [api 명세 & Figma](https://www.notion.so/API-Figma-a5d5995e9be9485996d1baf017b65226)
+
+---
+
+<span id="2"></span>
+## 서비스 설계
+
+
+
+<span id="2.1"></span>
+## 1. 설계 산출물
+### E-R Diagram
+<img src="readmeImage/회원DB.png" style="width: 100%" alt="no pic">
+<img src="readmeImage/여행경보DB.png" style="width: 100%" alt="no pic">
+<img src="readmeImage/후원DB.png" style="width: 100%" alt="no pic">
+
+
+<span id="2.2"></span>
+## 2. 서비스별 기능
+
+### ✔ 회원관리 서비스
+#### 📍회원가입
+대상 : 일반회원
+아이디, 비밀번호, 비밀번호 확인, 이메일 입력
+#### 📍회원정보 수정
+대상 : 일반회원
+마이페이지에서 비밀번호 수정 가능 -> 이메일, 회원유형 수정 불가
+#### 📍마이페이지
+대상 : 일반회원
+기존에 입력했던 아이디, 이메일, 가입일, 수정일을 확인. 비밀번호 변경 기능
+#### 📍로그인/로그아웃
+대상 : 일반회원
+기존에 가입했던 이메일과 비밀번호를 통해 로그인, 카카오 소셜 로그인
+
+#### 로그인 페이지
+<img src="readmeImage/카카오로그인.gif" style="width: 100%" alt="no pic" loop=infinite>
+
+### ✔ 지도 서비스
+#### 📍단계별 여행경보
+대상 : 사이트를 이용하는 모든 사용자
+지도를 통해 각 나라면 단계별 여행경보를 확인
+#### 📍상세보기 페이지
+대상 : 사이트를 이용하는 모든 사용자
+지도의 국가명 클릭시 국가별 정보(지도,기본정보,현지연락처)를 확인
+
+#### 지도 구현 화면
+<img src="readmeImage/지도구현동영상.gif" style="width: 100%" alt="no pic">
+
+
+### ✔ 단계별 여행경보 서비스
+#### 📍단계별 여행경보
+대상 : 사이트를 이용하는 모든 사용자
+페이지에서 버튼을 통해 단계별 여행경보로 분류된 국가들을 확인
+#### 📍상세보기 페이지
+대상 : 사이트를 이용하는 모든 사용자
+목록에 있는 국가명 클릭시 국가별 정보(지도,기본정보,현지연락처)를 확인
+
+### 여행 경보 화면
+<img src="readmeImage/단계별_여행경보_페이지.gif" style="width: 100%" alt="no pic">
+
+
+### ✔ 후원 서비스
+#### 📍후원하기 기능
+대상 : 사이트를 이용하는 모든 사용자
+카카오페이, 토스 등과 같은 결제 시스템을 통해 후원
+#### 📍후원내역 확인
+대상 : 사이트를 이용하는 모든 사용자
+이름, 전화번호, 이메일을 입력하여 후원 내역을 확인
+
+### 결제 화면
+<img src="readmeImage/결제기능.gif" style="width: 100%" alt="no pic">
+
+
+
+---
